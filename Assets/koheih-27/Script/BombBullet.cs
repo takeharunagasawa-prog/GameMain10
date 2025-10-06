@@ -1,0 +1,56 @@
+using System;
+using UnityEngine;
+
+/// <summary>
+/// まっすぐ飛ぶ弾。lifeTime 秒で自動爆発。
+/// ぶつかった時も爆発する。
+/// </summary>
+[RequireComponent(typeof(Collider2D))]
+public class BombBullet : MonoBehaviour
+{
+    [Header("弾の速さ")]
+    public float speed = 10f;
+
+    [Header("何秒で自動爆発するか")]
+    public float lifeTime = 1.5f;
+
+    [Header("爆発の見た目（SimpleExplosion を付けた物）")]
+    public GameObject explosionPrefab;
+
+    // PlayerShooter から渡される「進む向き」
+    [HideInInspector] public Vector2 moveDir = Vector2.right;
+
+    float timer = 0f;
+
+    void Update()
+    {
+        // 進む（2DなのでZは無視）
+        transform.position += (Vector3)(moveDir * speed * Time.deltaTime);
+
+        // 一定時間で自動爆発
+        timer += Time.deltaTime;
+        if (timer >= lifeTime)
+        {
+            Explode();
+        }
+    }
+
+    // 何かに触れたら爆発（弾のCollider2Dは isTrigger をONにしておく）
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // ここでは相手を選ばず爆発（必要ならタグで分岐）
+        Explode();
+    }
+
+    void Explode()
+    {
+        // 見た目の爆発を出す（なくてもOK）
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        // 弾そのものは消える
+        Destroy(gameObject);
+    }
+}
