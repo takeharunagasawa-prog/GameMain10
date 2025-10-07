@@ -23,6 +23,8 @@ public class FadeOutPanel : CoroutineContent
     {
         StopAllCoroutines();
         colorAlpha.Set(terminalAlpha);
+
+        contentEnd = true;
     }
 
     private IEnumerator Fade()
@@ -31,5 +33,7 @@ public class FadeOutPanel : CoroutineContent
         {
             yield return new WaitForEndOfFrame();
         }
+
+        contentEnd = true;
     }
 }

@@ -7,9 +7,11 @@ public class NormalContent : CoroutineContent
     public override void ProcessStarted()
     {
         content.SetActive(true);
+        contentEnd = true;
     }
     public override void ForcedEnd()
     {
         content.SetActive(true);
+        contentEnd = true;
     }
 }

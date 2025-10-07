@@ -30,18 +30,18 @@ public class ColorAlpha
     /// <returns>“§–¾“x‚ª–Ú“I‚É“ž’B‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð•Ô‚µ‚Ü‚·</returns>
     public bool ToWard(float distination, float speed)
     {
-        float dif = Mathf.Abs(distination - targetImage.color.a);
+        float currentAlpha = targetImage.color.a;
+        float dif = Mathf.Abs(distination - currentAlpha);
         if (dif < speed)
-        {
-            float currentAlpha = targetImage.color.a;
-            currentAlpha += speed * Mathf.Sign(distination - currentAlpha);
-            Set(currentAlpha);
-            return false;
-        }
-        else
         {
             Set(distination);
             return true;
+        }
+        else
+        {
+            currentAlpha += speed * Mathf.Sign(distination - currentAlpha);
+            Set(currentAlpha);
+            return false;
         }
     }
 }

@@ -8,9 +8,11 @@ public class ClearMessage : CoroutineContent
     public override void ForcedEnd()
     {
         textComponent.text = string.Empty;
+        contentEnd = true;
     }
     public override void ProcessStarted()
     {
         textComponent.text = string.Empty;
+        contentEnd = true;
     }
 }

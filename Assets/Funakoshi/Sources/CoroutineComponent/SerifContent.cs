@@ -13,7 +13,6 @@ public class SerifContent : CoroutineContent
     void Awake()
     {
         text = new TextUseCase(textComponent);
-        hereMessage = string.Empty;
     }
     public override void ProcessStarted()
     {
@@ -22,6 +21,7 @@ public class SerifContent : CoroutineContent
     }
     public override void ForcedEnd()
     {
+        StopAllCoroutines();
         text.SetText(hereMessage);
         contentEnd = true;
     }
@@ -34,17 +34,16 @@ public class SerifContent : CoroutineContent
         int viewCharsCount = 0;
         while (true)
         {
+            if (messageLength <= viewCharsCount)
+            {
+                break;
+            }
+
             text.AddNewCharToText(message[viewCharsCount]);
 
             yield return new WaitForEndOfFrame();
 
             viewCharsCount++;
-            if (messageLength <= viewCharsCount)
-            {
-                break;
-            }
         }
-
-        contentEnd = true;
     }
 }

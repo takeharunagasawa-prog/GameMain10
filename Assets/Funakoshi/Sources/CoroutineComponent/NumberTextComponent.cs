@@ -36,7 +36,7 @@ public class NumberTextComponent : CoroutineContent
             yield return new WaitForEndOfFrame();
 
             displayNum += displayIncreaseSpeed;
-            textComponent.text = ((int)displayIncreaseSpeed).ToString();
+            textComponent.text = ((int)displayNum).ToString();
         }
         textComponent.text = numberValue.ToString();
 
