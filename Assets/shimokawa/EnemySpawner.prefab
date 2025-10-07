@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5077995763057933048}
   - component: {fileID: -3819756357502578567}
   - component: {fileID: -5880099425892438461}
+  - component: {fileID: 3154164750351361454}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2032a9c5c6643e45930b8f476cbe589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
 --- !u!61 &-3819756357502578567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +177,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3154164750351361454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088644796446770242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c34e865ff4ec364fb9557521320cb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 4088644796446770242}
+  spawnInterval: 5
+  spawnRange: 8
