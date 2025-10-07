@@ -8,12 +8,13 @@ public class ContentManagement : MonoBehaviour
     private int skipUnitIndex = 0;
     private int coroutineContentIndex = 0;
     private CoroutineContent CurrentContent => skipUnits[skipUnitIndex].CoroutineContents[coroutineContentIndex];
-
-    private bool isContentEnd = false;
+    private bool IsValidIndex => skipUnitIndex < skipUnits.Count &&
+        coroutineContentIndex < skipUnits[skipUnitIndex].CoroutineContents.Count;
+    private bool isAllContentsEnd = false;
 
     public bool IsAllContentEnd()
     {
-        return isContentEnd;
+        return isAllContentsEnd;
     }
     public void RunFirstContent()
     {
@@ -22,7 +23,10 @@ public class ContentManagement : MonoBehaviour
 
     public void ContentUpdate()
     {
-        Debug.Log(CurrentContent.GetType());
+        if (!IsValidIndex)
+        {
+            Debug.LogError("インデックスエラーが発生しました");
+        }
         if (CurrentContent.IsContentEnd())
         {
             NextContent();
@@ -30,9 +34,9 @@ public class ContentManagement : MonoBehaviour
     }
     public void SkipContent()
     {
-        if (skipUnits.Count <= skipUnitIndex + 1)
+        if (!IsValidIndex)
         {
-            Debug.Log("これ以上スキップできません");
+            Debug.LogError("インデックスエラーが発生しました");
             return;
         }
 
@@ -40,31 +44,47 @@ public class ContentManagement : MonoBehaviour
         {
             content.ForcedEnd();
         }
-        skipUnitIndex++;
-        coroutineContentIndex = 0;
+
+        AdvandeNextUnit();
+
+        if (!IsValidIndex)
+        {
+            isAllContentsEnd = true;
+            return;
+        }
 
         CurrentContent.ProcessStarted();
     }
 
     private void NextContent()
     {
-        AdvanceIndex();
-        CurrentContent.ProcessStarted();
-    }
-    private void AdvanceIndex()
-    {
-        if (skipUnits[skipUnitIndex].CoroutineContents.Count <= coroutineContentIndex + 1)
+        AdvanceContent();
+
+        if (!IsValidIndex)
         {
-            skipUnitIndex++;
-            coroutineContentIndex = 0;
-            return;
-        }
-        if (skipUnits.Count <= skipUnitIndex)
-        {
-            isContentEnd = true;
+            isAllContentsEnd = true;
             return;
         }
 
+        CurrentContent.ProcessStarted();
+    }
+    private void AdvanceContent()
+    {
+        if (!IsValidIndex)
+        {
+            Debug.LogError("インデックスエラーが発生しました");
+        }
+
         coroutineContentIndex++;
+
+        if (!IsValidIndex)
+        {
+            AdvandeNextUnit();
+        }
+    }
+    private void AdvandeNextUnit()
+    {
+        skipUnitIndex++;
+        coroutineContentIndex = 0;
     }
 }

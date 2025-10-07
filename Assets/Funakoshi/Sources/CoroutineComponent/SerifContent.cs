@@ -6,6 +6,7 @@ public class SerifContent : CoroutineContent
 {
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] private string hereMessage;
+    [SerializeField] private int framesForChar;
 
     private TextUseCase text;
 
@@ -41,7 +42,8 @@ public class SerifContent : CoroutineContent
 
             text.AddNewCharToText(message[viewCharsCount]);
 
-            yield return new WaitForEndOfFrame();
+            for (int i = 0; i < framesForChar; i++)
+                yield return new WaitForFixedUpdate();
 
             viewCharsCount++;
         }

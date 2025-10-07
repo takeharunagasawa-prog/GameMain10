@@ -33,7 +33,7 @@ public class NumberTextComponent : CoroutineContent
         float displayNum = 0;
         for (int i = 0; i < frames; i++)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
 
             displayNum += displayIncreaseSpeed;
             textComponent.text = ((int)displayNum).ToString();

@@ -10,7 +10,10 @@ public class EndingScene : MonoBehaviour
     }
     void Update()
     {
-        contentManagement.ContentUpdate();
+        if (!contentManagement.IsAllContentEnd())
+        {
+            contentManagement.ContentUpdate();
+        }
 
         InputKeys();
     }
@@ -18,7 +21,10 @@ public class EndingScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            contentManagement.SkipContent();
+            if (!contentManagement.IsAllContentEnd())
+            {
+                contentManagement.SkipContent();
+            }
         }
     }
 }

@@ -25,21 +25,20 @@ public class ColorAlpha
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="distination"></param>
+    /// <param name="destination"></param>
     /// <param name="speed"></param>
     /// <returns>“§–¾“x‚ª–Ú“I‚É“ž’B‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð•Ô‚µ‚Ü‚·</returns>
-    public bool ToWard(float distination, float speed)
+    public bool ToWard(float destination, float speed)
     {
         float currentAlpha = targetImage.color.a;
-        float dif = Mathf.Abs(distination - currentAlpha);
-        if (dif < speed)
+        if (Mathf.Abs(destination - currentAlpha) < Mathf.Abs(speed))
         {
-            Set(distination);
+            Set(destination);
             return true;
         }
         else
         {
-            currentAlpha += speed * Mathf.Sign(distination - currentAlpha);
+            currentAlpha += speed;
             Set(currentAlpha);
             return false;
         }

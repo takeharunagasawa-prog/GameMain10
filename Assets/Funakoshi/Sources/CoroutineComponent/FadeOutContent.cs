@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeOutPanel : CoroutineContent
+public class FadeOutContent : CoroutineContent
 {
     [SerializeField] private Image thisImage;
     [SerializeField] private float fadeSpeed;
@@ -13,6 +13,8 @@ public class FadeOutPanel : CoroutineContent
     void Awake()
     {
         colorAlpha = new ColorAlpha(thisImage);
+        if (thisImage == null)
+            Debug.LogError("Imageがアタッチされていません");
     }
 
     public override void ProcessStarted()
@@ -31,7 +33,7 @@ public class FadeOutPanel : CoroutineContent
     {
         while (!colorAlpha.ToWard(terminalAlpha, fadeSpeed))
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
 
         contentEnd = true;
