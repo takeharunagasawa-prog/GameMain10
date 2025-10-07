@@ -2,16 +2,18 @@
 
 public class EnemySpawner : MonoBehaviour
 {
+    private Transform player;         // プレイヤーの位置情報
 
-    public GameObject enemyPrefab;  // 生成する敵のプレハブ
-    public float spawnInterval = 5f; // 生成間隔（秒）
-    public float spawnRange = 8f;    // 生成位置のランダム範囲
+    [SerializeField] private GameObject enemyPrefab;  // 生成する敵のプレハブ
+    [SerializeField] private float spawnInterval = 5f; // 生成間隔（秒）
+    [SerializeField] private float spawnRange = 8f;    // 生成位置のランダム範囲
     private float timer = 0f; // 時間を計るための変数
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //プレイヤーを名前で探す
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
