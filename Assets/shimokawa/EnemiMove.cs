@@ -23,4 +23,15 @@ public class EnemiMove : MonoBehaviour
         // 敵をプレイヤー方向へ移動させる
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
+
+         // プレイヤーと接触したときに呼ばれる
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // もし接触した相手の名前が「Player」なら
+        if (collision.gameObject.name == "Player")
+        {
+            // 敵を消す
+            Destroy(gameObject);
+        }
+    }
 }
