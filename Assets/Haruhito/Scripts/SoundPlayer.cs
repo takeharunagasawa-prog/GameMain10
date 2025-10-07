@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
@@ -6,7 +5,9 @@ public class SoundPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SoundManager.Instance.PlayBGM(SoundManager.bgmClips[0]);
+        AudioClip clip = SoundManager.Instance.BgmClips[0];
+
+        SoundManager.Instance.PlayBGM(clip);
     }
 
     // Update is called once per frame
