@@ -1,14 +1,13 @@
-using System;
 using UnityEngine;
 
 /// <summary>
-/// 2D‚Åã‰º¶‰E‚É“®‚­ƒXƒNƒŠƒvƒg
-/// ŠÈ’PF–îˆóƒL[/WASD‚ÅˆÚ“®A•à‚¢‚Ä‚¢‚é‚©‚ğAnimator‚É“n‚·
+/// 2Dã§ä¸Šä¸‹å·¦å³ã«å‹•ãã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+/// ç°¡å˜ï¼šçŸ¢å°ã‚­ãƒ¼/WASDã§ç§»å‹•ã€æ­©ã„ã¦ã„ã‚‹ã‹ã‚’Animatorã«æ¸¡ã™
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement2D : MonoBehaviour
 {
-    [Header("ˆÚ“®ƒXƒs[ƒh(‘å‚«‚¢‚Ù‚Ç‘¬‚¢)")]
+    [Header("ç§»å‹•ã‚¹ãƒ”ãƒ¼ãƒ‰(å¤§ãã„ã»ã©é€Ÿã„)")]
     [SerializeField]
     public float moveSpeed = 5f;
 
@@ -18,21 +17,34 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Awake()
     {
+        // Aã‚¬ãƒ¼ãƒ‰ï¼šPlayerã‚¿ã‚°ä»¥å¤–ãªã‚‰è‡ªå‹•åœæ­¢
+        if (!CompareTag("Player"))
+        {
+            Debug.LogWarning($"{name}: Player ã˜ã‚ƒãªã„ã®ã§ PlayerMovement2D ã‚’ç„¡åŠ¹åŒ–ã—ã¾ã—ãŸ");
+            enabled = false;
+            return;
+        }
         rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>(); // ‚È‚­‚Ä‚àOK
+        animator = GetComponent<Animator>(); // ãªãã¦ã‚‚OK
+
+        // 2Dè¦‹ä¸‹ã‚ã—ã«æœ€é©åŒ–
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     void Update()
     {
-        // ƒL[ƒ{[ƒh“ü—Íi-1`1j
-        float x = Input.GetAxisRaw("Horizontal");  // A/D or ©/¨
-        float y = Input.GetAxisRaw("Vertical");    // W/S or ª/«
-        input = new Vector2(x, y).normalized;      // Î‚ß‚Å‘¬‚­‚È‚ç‚È‚¢‚æ‚¤³‹K‰»
+        // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›ï¼ˆ-1ï½1ï¼‰
+        float x = Input.GetAxisRaw("Horizontal");  // A/D or â†/â†’
+        float y = Input.GetAxisRaw("Vertical");    // W/S or â†‘/â†“
+        input = new Vector2(x, y).normalized;      // æ–œã‚ã§é€Ÿããªã‚‰ãªã„ã‚ˆã†æ­£è¦åŒ–
 
-        // ƒAƒjƒ—p‚Ì’l‚ğ“n‚·iAnimator‚ª‚ ‚éê‡j
+        // ã‚¢ãƒ‹ãƒ¡ç”¨ã®å€¤ã‚’æ¸¡ã™ï¼ˆAnimatorãŒã‚ã‚‹å ´åˆï¼‰
         if (animator)
         {
-            animator.SetFloat("Speed", input.sqrMagnitude); // 0‚È‚ç’â~A>0‚Å•à‚«
+            animator.SetFloat("Speed", input.sqrMagnitude); // 0ãªã‚‰åœæ­¢ã€>0ã§æ­©ã
             animator.SetFloat("MoveX", input.x);
             animator.SetFloat("MoveY", input.y);
         }
@@ -40,7 +52,7 @@ public class PlayerMovement2D : MonoBehaviour
 
     void FixedUpdate()
     {
-        // •¨—‚ÌƒtƒŒ[ƒ€‚ÅˆÚ“®‚³‚¹‚é
-        rb.MovePosition(rb.position + input * moveSpeed * Time.fixedDeltaTime);
+        Vector2 next = rb.position + input * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(next);
     }
 }

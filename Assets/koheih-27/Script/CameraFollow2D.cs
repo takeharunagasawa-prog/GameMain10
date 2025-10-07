@@ -23,6 +23,7 @@ public class CameraFollow2D : MonoBehaviour
         Vector3 goalPos = target.position + offset;
         // ゆっくり追いつく（いきなりガクッと動かない）
         transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, smooth);
+        Debug.Log($"Camera:{transform.position}, Target:{target.position}");
     }
 }
 
