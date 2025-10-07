@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemiMove : MonoBehaviour
 {
-    public float speed = 3f;          // 敵の移動速度
+    public float speed = 2f;          // 敵の移動速度
     private Transform player;         // プレイヤーの位置情報
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

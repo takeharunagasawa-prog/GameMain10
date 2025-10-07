@@ -4,7 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
     public GameObject enemyPrefab;  // 生成する敵のプレハブ
-    public float spawnInterval = 3f; // 生成間隔（秒）
+    public float spawnInterval = 5f; // 生成間隔（秒）
     public float spawnRange = 8f;    // 生成位置のランダム範囲
     private float timer = 0f; // 時間を計るための変数
 
