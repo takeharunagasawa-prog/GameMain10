@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Vector3 min = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0));
-        Vector3 max = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0));
+        Vector3 max = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, 0));
         //ランダムな位置を作る
         float x = Random.Range(minspawnRange.x, maxspawnRange.x);
         float y = Random.Range(minspawnRange.y, maxspawnRange.y);

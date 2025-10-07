@@ -102,4 +102,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4088644796446770242, guid: 90b429e43d1294346a1f4760255dd69a, type: 3}
   spawnInterval: 5
-  spawnRange: 8
+  minspawnRange: {x: -10, y: -6}
+  maxspawnRange: {x: 10, y: 6}

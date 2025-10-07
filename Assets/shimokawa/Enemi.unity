@@ -219,17 +219,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: spawnRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: maxspawnRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: maxspawnRange.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: minspawnRange.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465510975202050816, guid: 034219e2388debb408e249d74357bc5b, type: 3}
+      propertyPath: minspawnRange.y
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 1988038573572429926, guid: 034219e2388debb408e249d74357bc5b, type: 3}
       propertyPath: m_Name
       value: EnemiSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 8541510088987216029, guid: 034219e2388debb408e249d74357bc5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.04
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 8541510088987216029, guid: 034219e2388debb408e249d74357bc5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.67
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: 8541510088987216029, guid: 034219e2388debb408e249d74357bc5b, type: 3}
       propertyPath: m_LocalPosition.z
