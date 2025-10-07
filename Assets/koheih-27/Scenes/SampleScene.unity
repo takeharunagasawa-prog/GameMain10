@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickupEnbel
       objectReference: {fileID: 0}
-    - target: {fileID: 5608678901013867964, guid: 39936f20efba17a449ea45a1367a9893, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
