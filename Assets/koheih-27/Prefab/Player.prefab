@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4893925635744890528}
   - component: {fileID: 8547513344811834132}
   - component: {fileID: 5584507098517997978}
+  - component: {fileID: 1873852294285644882}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,7 +153,20 @@ MonoBehaviour:
   shootPoint: {fileID: 7944248840245210302}
   fireInterval: 0.25
   currentType: 1
-  canShoot: 0
+  canShoot: 1
+--- !u!114 &1873852294285644882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594436947582079410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de03f889e0b9b7642815e1714a6d33d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &4126268274051631914
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +178,7 @@ GameObject:
   - component: {fileID: 7944248840245210302}
   m_Layer: 0
   m_Name: ShootPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
