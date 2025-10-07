@@ -9,6 +9,21 @@ public class EndingScene : MonoBehaviour
     {
         state = EndingSceneState.WaitIn;
     }
+    void Update()
+    {
+        switch (state)
+        {
+            case EndingSceneState.WaitIn:
+                break;
+            case EndingSceneState.Serif:
+                break;
+            case EndingSceneState.FadeOut:
+                break;
+            case EndingSceneState.Result:
+                break;
+        }
+    }
+
     public void NextProccess()
     {
         switch(state)
@@ -20,7 +35,7 @@ public class EndingScene : MonoBehaviour
                 break;
         }
     }
-    public void StatusEnd(EndingSceneState currentState)
+    private void StatusEnd(EndingSceneState currentState)
     {
         if (currentState != state)
             return;
