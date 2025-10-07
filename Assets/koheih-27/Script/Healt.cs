@@ -10,9 +10,11 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [Header("最大HP")]
+    [SerializeField]
     public int maxHP = 5;
 
     [Header("現在HP（開始時は最大でOK）")]
+    [SerializeField]
     public int currentHP;
 
     [Header("HPが0になった時のイベント（エフェクトや消す等）")]
@@ -22,22 +24,6 @@ public class Health : MonoBehaviour
     {
         currentHP = maxHP;
     }
-
-    public void TakeDamage(int amount)
-    {
-        currentHP -= amount;
-        currentHP = Mathf.Max(currentHP, 0);
-
-        if (currentHP <= 0)
-        {
-            // まずイベント（音・アニメ等）
-            onDead?.Invoke();
-
-            // 何もしなければ消すだけ
-            Destroy(gameObject);
-        }
-    }
-
     public void Heal(int amount)
     {
         currentHP = Mathf.Min(currentHP + amount, maxHP);

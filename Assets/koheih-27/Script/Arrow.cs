@@ -33,6 +33,7 @@ public class Arrow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    [Obsolete]
     void Start()
     {
         rb.isKinematic = true; // 直進だけならキネマティックでOK
@@ -55,7 +56,6 @@ public class Arrow : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             Health hp = other.GetComponent<Health>();
-            if (hp) hp.TakeDamage(damage);
         }
 
         // 地形（"Wall"など）でも壊れてOK
