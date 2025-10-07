@@ -20,7 +20,7 @@ public class PlayerMovement2D : MonoBehaviour
         // Aガード：Playerタグ以外なら自動停止
         if (!CompareTag("Player"))
         {
-            Debug.LogWarning($"{name}: Player じゃないので PlayerMovement2D を無効化しました");
+            Debug.LogWarning($"{name}: TagがPlayerではないため PlayerMovement2D を無効化しました");
             enabled = false;
             return;
         }

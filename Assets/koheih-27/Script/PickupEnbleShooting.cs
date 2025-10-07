@@ -15,6 +15,7 @@ public class PickupEnableShooting : MonoBehaviour
 
     void Awake()
     {
+        // Rigidbody2D がある場合、安全設定に変更
         var rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -23,6 +24,7 @@ public class PickupEnableShooting : MonoBehaviour
             rb.freezeRotation = true;
         }
 
+        // Collider2Dをトリガー化（ぶつからないように）
         var col = GetComponent<Collider2D>();
         if (col != null) col.isTrigger = true;
     }
@@ -32,14 +34,20 @@ public class PickupEnableShooting : MonoBehaviour
         if (consumed) return;
         if (!other.CompareTag(targetTag)) return;
 
-        // プレイヤー側の射撃コンポーネントを取得（子コライダー対策で親も見る）
+        // プレイヤー側の射撃コンポーネントを取得（どちらでも対応）
         var shooterDual = other.GetComponentInParent<PlayerShooterDual>();
-        var shooterSimple = other.GetComponentInParent<PlayerShooterDual>();
+        var shooterSimple = other.GetComponentInParent<PlayerShooterSimple>();
 
         if (shooterDual != null) shooterDual.canShoot = true;
         if (shooterSimple != null) shooterSimple.canShoot = true;
 
+        // 拾ったら即消す
         consumed = true;
-        Destroy(gameObject); // 1回で消える
+        Destroy(gameObject);
     }
+}
+
+internal class PlayerShooterSimple
+{
+    internal bool canShoot;
 }
