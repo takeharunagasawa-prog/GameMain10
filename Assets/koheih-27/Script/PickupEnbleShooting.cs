@@ -36,7 +36,7 @@ public class PickupEnableShooting : MonoBehaviour
 
         // プレイヤー側の射撃コンポーネントを取得（どちらでも対応）
         var shooterDual = other.GetComponentInParent<PlayerShooterDual>();
-        var shooterSimple = other.GetComponentInParent<PlayerShooterSimple>();
+        var shooterSimple = other.GetComponentInParent<PlayerShooterDual>();
 
         if (shooterDual != null) shooterDual.canShoot = true;
         if (shooterSimple != null) shooterSimple.canShoot = true;
