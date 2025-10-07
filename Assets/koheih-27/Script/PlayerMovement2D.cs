@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerMovement2D : MonoBehaviour
 {
     [Header("移動スピード(大きいほど速い)")]
+    [SerializeField]
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;

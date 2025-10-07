@@ -9,12 +9,15 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [Header("飛ぶ速さ")]
+    [SerializeField]
     public float speed = 12f;
 
     [Header("何秒で自動消滅するか")]
+    [SerializeField]
     public float lifeTime = 3f;
 
     [Header("与えるダメージ量")]
+    [SerializeField]
     public int damage = 1;
 
     [Header("この矢が狙う相手のタグ（例：Enemy）")]

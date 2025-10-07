@@ -9,9 +9,11 @@ using UnityEngine;
 public class BombBullet : MonoBehaviour
 {
     [Header("’e‚Ì‘¬‚³")]
+    [SerializeField]
     public float speed = 10f;
 
     [Header("‰½•b‚Å©“®”š”­‚·‚é‚©")]
+    [SerializeField]
     public float lifeTime = 1.5f;
 
     [Header("”š”­‚ÌŒ©‚½–ÚiSimpleExplosion ‚ğ•t‚¯‚½•¨j")]

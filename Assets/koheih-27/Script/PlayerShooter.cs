@@ -16,6 +16,7 @@ public class PlayerShooter : MonoBehaviour
     public Transform shootPoint;
 
     [Header("連射間隔（秒）")]
+    [SerializeField]
     public float fireInterval = 0.25f;
 
     [Header("アイテムを取るまで撃てない")]
