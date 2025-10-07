@@ -3,12 +3,17 @@
 public enum BGMType
 {
     Battle,
+    Finish,
 }
 
 // SE‚ÌŽí—Þ
 public enum SEType
 {
     Arrow,
-    Charge,
     Damage,
+    Charge,
+    BombArrow,
+    Noroi,
+    Kiken,
+    Time1
 }

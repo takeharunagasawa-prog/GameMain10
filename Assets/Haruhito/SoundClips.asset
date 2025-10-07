@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: SoundClips
   m_EditorClassIdentifier: 
   bgmClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 7423974d28b13714b9a937c24dec7a3b, type: 3}
+  - {fileID: 8300000, guid: fc4c1fbcc6c4cc744bb9bbf062367933, type: 3}
   seClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 4e9113fb4966a734196e51864dacfa01, type: 3}
+  - {fileID: 8300000, guid: 1b8243105f1253a4392d37198911985b, type: 3}
+  - {fileID: 8300000, guid: b129597beb31af8498ef015f34d8e2f6, type: 3}
+  - {fileID: 8300000, guid: f290874e32cc26e459bbe4649bf8c5a7, type: 3}
+  - {fileID: 8300000, guid: af373039ce9fee442b4323fadd66f7c1, type: 3}
+  - {fileID: 8300000, guid: 2af140d1cf25b8a4ea5fc20f4bc6fc35, type: 3}
+  - {fileID: 8300000, guid: b484e24a9eaff0a418931cd4d4bb38f6, type: 3}
