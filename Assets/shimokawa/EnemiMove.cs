@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemiMove : MonoBehaviour
 {
-    public float speed = 3f;          // 敵の移動速度
-    private Transform player;         // プレイヤーの位置情報
+    public float speed = 2f;          //敵の移動速度
+    private Transform player;         //プレイヤーの位置情報
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,20 +17,20 @@ public class EnemiMove : MonoBehaviour
     {
         if (player == null) return;//プレイヤーが見つからない場合は何もしない
 
-        // プレイヤーの方向を求める
+        //プレイヤーの方向を求める
         Vector2 direction = (player.position - transform.position).normalized;
 
-        // 敵をプレイヤー方向へ移動させる
+        //敵をプレイヤー方向へ移動させる
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
-         // プレイヤーと接触したときに呼ばれる
+         //プレイヤーと接触したときに呼ばれる
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // もし接触した相手の名前が「Player」なら
+        //もし接触した相手の名前が「Player」なら
         if (collision.gameObject.name == "Player")
         {
-            // 敵を消す
+            //敵を消す
             Destroy(gameObject);
         }
     }

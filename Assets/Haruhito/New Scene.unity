@@ -286,11 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028b773d36188b1499a3cd0dc3f5b979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seSourceCount: 5
-  seSources: []
-  bgmClips:
-  - {fileID: 8300000, guid: 037b3f49e9950884591ab742edb8f81b, type: 3}
-  seClips: []
+  database: {fileID: 11400000, guid: b575d315df3181c4cb7aea12961eeda9, type: 2}
 --- !u!4 &2047375657
 Transform:
   m_ObjectHideFlags: 0
