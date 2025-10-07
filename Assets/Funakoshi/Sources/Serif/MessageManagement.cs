@@ -1,9 +1,9 @@
-using UnityEngine;
+/*using UnityEngine;
 
-public class MessageManagement : MonoBehaviour
+public class MessageSetter : MonoBehaviour
 {
     [SerializeField] private Lines lines;
-    [SerializeField] TextComponent textComponent;
+    [SerializeField] SerifContent textComponent;
 
     private int serifIndex = 0;
 
@@ -33,3 +33,4 @@ public class MessageManagement : MonoBehaviour
         return false;
     }
 }
+*/

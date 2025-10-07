@@ -2,39 +2,32 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class TextComponent : MonoBehaviour, IMessageProccessable
+public class SerifContent : CoroutineContent
 {
     [SerializeField] TextMeshProUGUI textComponent;
+    [SerializeField] private string hereMessage;
 
     private TextUseCase text;
-    private bool isCoroutineRunning;
-    private string hereMessage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         text = new TextUseCase(textComponent);
-        isCoroutineRunning = false;
         hereMessage = string.Empty;
     }
-
-    public bool IsTextRunning()
-    {
-        return isCoroutineRunning;
-    }
-    public void NextMessage(string message)
+    public override void ProcessStarted()
     {
         text.ClearText();
-        StartCoroutine(IncreaseExecute(message));
+        StartCoroutine(IncreaseExecute(hereMessage));
     }
-    public void TextAnimationForcedEnd()
+    public override void ForcedEnd()
     {
         text.SetText(hereMessage);
+        contentEnd = true;
     }
 
     private IEnumerator IncreaseExecute(string message)
     {
-        isCoroutineRunning = true;
         hereMessage = message;
 
         int messageLength = message.Length;
@@ -52,6 +45,6 @@ public class TextComponent : MonoBehaviour, IMessageProccessable
             }
         }
 
-        isCoroutineRunning = false;
+        contentEnd = true;
     }
 }

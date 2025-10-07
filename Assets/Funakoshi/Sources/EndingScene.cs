@@ -2,55 +2,23 @@ using UnityEngine;
 
 public class EndingScene : MonoBehaviour
 {
-    [SerializeField] MessageManagement message;
-    private EndingSceneState state;
+    [SerializeField] ContentManagement contentManagement;
 
     void Start()
     {
-        state = EndingSceneState.WaitIn;
+        contentManagement.RunFirstContent();
     }
     void Update()
     {
-        switch (state)
-        {
-            case EndingSceneState.WaitIn:
-                break;
-            case EndingSceneState.Serif:
-                break;
-            case EndingSceneState.FadeOut:
-                break;
-            case EndingSceneState.Result:
-                break;
-        }
-    }
+        contentManagement.ContentUpdate();
 
-    public void NextProccess()
-    {
-        switch(state)
-        {
-            case EndingSceneState.Serif:
-                message.NextMessageProcess();
-                break;
-            default:
-                break;
-        }
+        InputKeys();
     }
-    private void StatusEnd(EndingSceneState currentState)
+    void InputKeys()
     {
-        if (currentState != state)
-            return;
-
-        switch (state)
+        if (Input.GetMouseButtonDown(0))
         {
-            case EndingSceneState.WaitIn:
-                state = EndingSceneState.Serif;
-                break;
-            case EndingSceneState.Serif:
-                state = EndingSceneState.FadeOut;
-                break;
-            case EndingSceneState.FadeOut:
-                state = EndingSceneState.Result;
-                break;
+            contentManagement.SkipContent();
         }
     }
 }
