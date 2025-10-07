@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7736280091314136025}
   - component: {fileID: 4893925635744890528}
   - component: {fileID: 8547513344811834132}
-  - component: {fileID: 5584507098517997978}
   - component: {fileID: 1873852294285644882}
+  - component: {fileID: 1734808218062586478}
+  - component: {fileID: 2579464092509703794}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,7 +117,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &8547513344811834132
@@ -136,24 +137,6 @@ MonoBehaviour:
   onDead:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5584507098517997978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3594436947582079410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2397f6bb74a7a0489aeec6ad267ab00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombBulletPrefab: {fileID: 6377756233629287507, guid: 57e66f029074a0947a98a9a0604a1ab3, type: 3}
-  arrowPrefab: {fileID: 7553182372856597097, guid: f1ea22234883a7c4181c2ebf07310331, type: 3}
-  shootPoint: {fileID: 7944248840245210302}
-  fireInterval: 0.25
-  currentType: 1
-  canShoot: 1
 --- !u!114 &1873852294285644882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +150,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!70 &1734808218062586478
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594436947582079410}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
+--- !u!114 &2579464092509703794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3594436947582079410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717eb33431f12a246876c4999ed6573d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalArrowPrefab: {fileID: 7553182372856597097, guid: f1ea22234883a7c4181c2ebf07310331, type: 3}
+  bombArrowPrefab: {fileID: 6377756233629287507, guid: 57e66f029074a0947a98a9a0604a1ab3, type: 3}
+  shootPoint: {fileID: 7944248840245210302}
+  fireInterval: 0.25
 --- !u!1 &4126268274051631914
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 4126268274051631914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6819806, y: 0.9621898, z: 0}
+  m_LocalPosition: {x: -0.61, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
