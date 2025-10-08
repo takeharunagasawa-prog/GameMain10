@@ -2,7 +2,7 @@
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Transform player;         //プレイヤーの位置情報
+    private Transform core;         //プレイヤーの位置情報
 
     [SerializeField] private GameObject enemyPrefab;  //生成する敵のプレハブ
     [SerializeField] private float spawnInterval = 5f; //生成間隔（秒）
@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     {
         mainCamera = Camera.main;
         //プレイヤーを名前で探す
-        player = GameObject.Find("Player").transform;
+        core = GameObject.Find("core").transform;
         SpawnEnemy();
     }
 
