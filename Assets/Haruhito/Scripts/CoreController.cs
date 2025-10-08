@@ -36,14 +36,14 @@ public class CoreController : MonoBehaviour
         // UpdateEnemyCountUI();
     }
 
-    // 敵が当たっている時
+    // 敵が当たった瞬間
     private void OnTriggerEnter2D(Collider2D other)
     {
         // タグがEnemyなら、当たっている敵の数を増やす
         if (other.CompareTag("Enemy"))
         {
             // EnemyのRigidbody2Dを取得
-            Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D enemyRb = other.attachedRigidbody;
 
             // EnemyのRigidbody2Dがnullでないかつ、当たった敵がリストに入っていない場合（重複防止）
             if (enemyRb != null && touchingEnemies.Contains(enemyRb) == false)
@@ -62,14 +62,14 @@ public class CoreController : MonoBehaviour
         }
     }
 
-    // 敵が離れた時
+    // 敵が離れた瞬間
     private void OnTriggerExit2D(Collider2D other)
     {
         // タグがEnemyなら、当たっている敵の数を減らす
         if (other.CompareTag("Enemy"))
         {
             // EnemyのRigidbody2Dを取得
-            Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D enemyRb = other.attachedRigidbody;
 
             //  EnemyのRigidbody2Dがnullでないかつ、当たった敵がリストに入っている場合
             if (enemyRb != null && touchingEnemies.Contains(enemyRb) == true)
@@ -81,6 +81,9 @@ public class CoreController : MonoBehaviour
             }
         }
     }
+
+    // 敵が当たっている間
+
 
     /*
     // 当たっている敵の数をカウント・更新
