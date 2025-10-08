@@ -191,13 +191,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460588029}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &594190316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3068266691954071870, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+  m_PrefabInstance: {fileID: 5146659606692450407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &697794253 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 955812593831769591, guid: 3dcf54a1b758d494cb5211fb4936b20e, type: 3}
@@ -214,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 3395302567317128899, guid: 3dcf54a1b758d494cb5211fb4936b20e, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 3068266691954071870, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      objectReference: {fileID: 594190316}
     - target: {fileID: 4544953495157367616, guid: 3dcf54a1b758d494cb5211fb4936b20e, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -316,14 +321,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7944248840245210302, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 7944248840245210302, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.27
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -341,10 +338,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LovePower
       objectReference: {fileID: 0}
-    - target: {fileID: 4907819995751091873, guid: aaa29e055d1a55349ab6750e46e1f824, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 4649607678056397662, guid: aaa29e055d1a55349ab6750e46e1f824, type: 3}
     - target: {fileID: 4907819995751091873, guid: aaa29e055d1a55349ab6750e46e1f824, type: 3}
       propertyPath: mainCamera
       value: 
@@ -400,5 +393,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1768039036}
   - {fileID: 5146659606692450407}
-  - {fileID: 460588032}
   - {fileID: 6089744759222313693}
+  - {fileID: 460588032}
