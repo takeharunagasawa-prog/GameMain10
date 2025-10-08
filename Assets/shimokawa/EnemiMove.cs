@@ -9,7 +9,7 @@ public class EnemiMove : MonoBehaviour
     void Start()
     {
         //Šj‚ð–¼‘O‚Å’T‚·
-        core = GameObject.Find("core").transform;
+        core = GameObject.Find("Core").transform;
     }
 
     // Update is called once per frame

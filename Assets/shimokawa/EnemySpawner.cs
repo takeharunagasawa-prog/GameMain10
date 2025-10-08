@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     {
         mainCamera = Camera.main;
         //プレイヤーを名前で探す
-        core = GameObject.Find("core").transform;
+        core = GameObject.Find("Core").transform;
         SpawnEnemy();
     }
 
