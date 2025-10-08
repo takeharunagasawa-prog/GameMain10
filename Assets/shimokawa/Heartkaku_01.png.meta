@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Heartkaku_01_0: -2716817066361230283
+      Heartkaku_01_1: 8405686241658641138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
