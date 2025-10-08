@@ -7,7 +7,7 @@ public class BGMManager : MonoBehaviour
 
     [Header("BGM音量（0～1）")]
     [Range(0.0f, 1.0f)]
-    [SerializeField] private float bgmVolume = 1.0f;
+    [SerializeField] private float bgmVolume = 0.3f;
 
     // BGMを再生するためのスピーカー
     private AudioSource bgmSource;

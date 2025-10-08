@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class CoreController : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class CoreController : MonoBehaviour
     [Header("ゲームオーバーのフラグ")]
     [SerializeField] private bool isGameOver = false;
 
+    // Coreに当たっている敵のリスト
+    private readonly List<Rigidbody2D> touchingEnemies = new List<Rigidbody2D>();
+
     public bool IsGameOver
     {
         get { return isGameOver; }
@@ -38,9 +42,17 @@ public class CoreController : MonoBehaviour
         // タグがEnemyなら、当たっている敵の数を増やす
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("カウント");
-            currentEnemyCount++;
-            // UpdateEnemyCountUI();
+            // EnemyのRigidbody2Dを取得
+            Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
+
+            // EnemyのRigidbody2Dがnullでないかつ、当たった敵がリストに入っていない場合（重複防止）
+            if (enemyRb != null && touchingEnemies.Contains(enemyRb) == false)
+            {
+                // リストに追加し、リストの数で管理
+                touchingEnemies.Add(enemyRb);
+                currentEnemyCount = touchingEnemies.Count;
+                // UpdateEnemyCountUI();
+            }
         }
 
         // ゲームオーバーになる敵の数以上になったら、フラグを立てる
@@ -56,8 +68,17 @@ public class CoreController : MonoBehaviour
         // タグがEnemyなら、当たっている敵の数を減らす
         if (other.CompareTag("Enemy"))
         {
-            currentEnemyCount--;
-            // UpdateEnemyCountUI();
+            // EnemyのRigidbody2Dを取得
+            Rigidbody2D enemyRb = other.GetComponent<Rigidbody2D>();
+
+            //  EnemyのRigidbody2Dがnullでないかつ、当たった敵がリストに入っている場合
+            if (enemyRb != null && touchingEnemies.Contains(enemyRb) == true)
+            {
+                // リストから削除し、リストの数で管理
+                touchingEnemies.Remove(enemyRb);
+                currentEnemyCount = touchingEnemies.Count;
+                // UpdateEnemyCountUI();
+            }
         }
     }
 
