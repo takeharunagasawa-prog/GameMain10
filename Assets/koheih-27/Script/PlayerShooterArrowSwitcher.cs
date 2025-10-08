@@ -53,7 +53,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         mouseWorld.z = 0f;
         Vector2 dir = (mouseWorld - shootPoint.position).normalized;
 
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180f;
         Quaternion rotZ = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject prefab = (currentType == ArrowType.Normal) ? normalArrowPrefab : bombArrowPrefab;
@@ -61,7 +61,11 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
 
         var shot = Instantiate(prefab, shootPoint.position, rotZ);
 
-        var arrow = shot.GetComponent<Arrow>(); if (arrow != null) arrow.moveDir = dir;
+        var arrow = shot.GetComponent<Arrow>();
+        Debug.Log(arrow);
+        if (arrow != null) arrow.moveDir = dir;
+        Debug.Log(arrow.moveDir);
+
         var bomb = shot.GetComponent<BombBullet>(); if (bomb != null) bomb.moveDir = dir;
 
         // 爆弾矢を撃ったら LovePower をリセット＆通常矢へ戻す
