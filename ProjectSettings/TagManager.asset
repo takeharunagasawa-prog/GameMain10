@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Item
+  - Core
+  - Enemy
+  - core
   layers:
   - Default
   - TransparentFX
