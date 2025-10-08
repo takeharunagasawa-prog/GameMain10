@@ -1,31 +1,42 @@
-﻿using UnityEngine;
-using UnityEngine.UI; // ← UIを使う（Text / Image）
+﻿// PlayerShooterArrowSwitcher.cs（要点だけ。FireはそのままでOK）
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShooterArrowSwitcher : MonoBehaviour
 {
     public enum ArrowType { Normal, Bomb }
 
-    [Header("発射プレハブ")]
+    [Header("Prefabs")]
     public GameObject normalArrowPrefab;
     public GameObject bombArrowPrefab;
 
-    [Header("発射位置")]
+    [Header("Muzzle")]
     public Transform shootPoint;
 
-    [Header("クールタイム")]
+    [Header("UI(任意)")]
+    public Text typeText;
+
+    [SerializeField] private ArrowType currentType = ArrowType.Normal; // ← 発射に使う源泉
+    [SerializeField] private LovePower love;
     [SerializeField] float fireInterval = 0.25f;
-
-    private ArrowType currentType = ArrowType.Normal;
-    private float lastFireTime;
-    void Update()
+    float lastFireTime;
+    public void SwitchToBomb() { currentType = ArrowType.Bomb; ApplyTypeVisuals(); }
+    public void SwitchToNormal() { currentType = ArrowType.Normal; ApplyTypeVisuals(); }
+    void Awake()
     {
-        // Qキーで切り替え
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            currentType = (currentType == ArrowType.Normal) ? ArrowType.Bomb : ArrowType.Normal;
-        }
+        if (love == null) love = FindAnyObjectByType<LovePower>(); // 1回だけ取ってキャッシュ
+        
+    }
 
-        // 左クリックで発射
+
+    void ApplyTypeVisuals()
+    {
+        if (typeText != null)
+            typeText.text = (currentType == ArrowType.Bomb) ? "💣 爆弾矢" : "▶ 通常矢";
+    }
+
+    private void Update()
+    {
         if (Input.GetMouseButton(0) && Time.time - lastFireTime >= fireInterval)
         {
             Fire();
@@ -36,8 +47,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     void Fire()
     {
         if (shootPoint == null) return;
+        Debug.Log("Fire: type=" + currentType);
 
-        // マウス位置から方向を計算
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f;
         Vector2 dir = (mouseWorld - shootPoint.position).normalized;
@@ -45,19 +56,19 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotZ = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        // 矢の種類に応じてPrefabを選択
         GameObject prefab = (currentType == ArrowType.Normal) ? normalArrowPrefab : bombArrowPrefab;
+        if (prefab == null) { Debug.LogWarning("Prefab未設定: " + currentType); return; }
 
-        if (prefab != null)
+        var shot = Instantiate(prefab, shootPoint.position, rotZ);
+
+        var arrow = shot.GetComponent<Arrow>(); if (arrow != null) arrow.moveDir = dir;
+        var bomb = shot.GetComponent<BombBullet>(); if (bomb != null) bomb.moveDir = dir;
+
+        // 爆弾矢を撃ったら LovePower をリセット＆通常矢へ戻す
+        if (currentType == ArrowType.Bomb)
         {
-            GameObject shot = Instantiate(prefab, shootPoint.position, rotZ);
-
-            // Arrow/BombBullet両対応
-            var arrow = shot.GetComponent<Arrow>();
-            if (arrow != null) arrow.moveDir = dir;
-
-            var bomb = shot.GetComponent<BombBullet>();
-            if (bomb != null) bomb.moveDir = dir;
+            love?.ResetPower();   // 0%＆再取得許可
+                                
         }
     }
 }

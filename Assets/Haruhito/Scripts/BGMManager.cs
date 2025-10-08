@@ -5,19 +5,18 @@ public class BGMManager : MonoBehaviour
     [Header("BGMデータベース")]
     [SerializeField] private SoundDatabase database;
 
-    [Header("BGM音量（0～1）")]
-    [Range(0.0f, 1.0f)]
-    [SerializeField] private float bgmVolume = 1.0f;
-
     // BGMを再生するためのスピーカー
     private AudioSource bgmSource;
 
-    private void Awake()
+    // 初期化
+    public void Init(SoundDatabase db)
     {
+        database = db;
+
         // BGMをループ可にして、音量設定
         bgmSource = gameObject.AddComponent<AudioSource>();
         bgmSource.loop = true;
-        bgmSource.volume = bgmVolume;
+        bgmSource.volume = database.BgmVolume;
     }
 
     // 再生
@@ -60,13 +59,13 @@ public class BGMManager : MonoBehaviour
     {
         if (bgmSource != null)
         {
-            bgmSource.volume = bgmVolume;
+            bgmSource.volume = database.BgmVolume;
         }
     }
 
     public void SetVolume(float volume)
     {
-        bgmVolume = Mathf.Clamp01(volume);
-        bgmSource.volume = bgmVolume;
+        database.BgmVolume = Mathf.Clamp01(volume);
+        bgmSource.volume = database.BgmVolume;
     }
 }

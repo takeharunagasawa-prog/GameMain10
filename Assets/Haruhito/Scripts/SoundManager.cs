@@ -36,6 +36,10 @@ public class SoundManager : MonoBehaviour
             ?.SetValue(bgmManager, database);
         seManager.GetType().GetField("database", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
             ?.SetValue(seManager, database);
+
+        // ‰Šú‰»
+        bgmManager.Init(database);
+        seManager.Init(database);
     }
 
     // ŠO•”‚©‚ç‘€ì‚Å‚«‚é‚æ‚¤‚É‚·‚é

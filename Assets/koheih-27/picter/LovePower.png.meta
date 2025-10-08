@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 3adf4a0799564f849b3d39f2f6cccd21
+guid: efe54ca687e083f44a4f698a8772c3a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2716817066361230283
-    second: Heartkaku_01_0
-  - first:
-      213: 8405686241658641138
-    second: Heartkaku_01_1
+      213: -4518482364727943313
+    second: LovePower_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,6 +110,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -129,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartkaku_01_0
+      name: LovePower_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 142
-        width: 15
-        height: 23
+        x: 0
+        y: 2
+        width: 63
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53ce1dfb54deb4ad0800000000000000
-      internalID: -2716817066361230283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heartkaku_01_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 19
-        width: 119
-        height: 216
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2fa937ff91ff6a470800000000000000
-      internalID: 8405686241658641138
+      spriteID: f6f168eaa302b41c0800000000000000
+      internalID: -4518482364727943313
       vertices: []
       indices: 
       edges: []
@@ -186,8 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartkaku_01_0: -2716817066361230283
-      Heartkaku_01_1: 8405686241658641138
+      LovePower_0: -4518482364727943313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

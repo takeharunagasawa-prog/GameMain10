@@ -14,24 +14,21 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos.x = 0.0f;
-        pos.y = 0.0f;
-
         if (Input.GetKey(KeyCode.W))
         {
-            pos.y = 1.0f;
+            pos.y += 0.01f;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            pos.x = -1.0f;
+            pos.x += -0.01f;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            pos.y = -1.0f;
+            pos.y += -0.01f;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            pos.x = 1.0f;
+            pos.x += 0.01f;
         }
 
         this.enemy.transform.position = pos;

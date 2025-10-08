@@ -1,85 +1,97 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class LovePower : MonoBehaviour
 {
-    [Header("o‚µ‚½‚¢PrefabiE‚¦‚éƒn[ƒg‚È‚Çj")]
+    [Header("å‡ºã—ãŸã„Prefab")]
     public GameObject prefab;
 
-    [Header("ƒƒCƒ“ƒJƒƒ‰i‹ó‚È‚ç©“®‚Å’T‚·j")]
+    [Header("ãƒ¡ã‚¤ãƒ³ã‚«ãƒ¡ãƒ©ï¼ˆç©ºãªã‚‰è‡ªå‹•ï¼‰")]
     public Camera mainCamera;
 
-    [Header("oŒ»ŠÔŠui•bj")]
-    public float spawnInterval = 1f;
+    [Header("å‡ºç¾é–“éš”(ç§’)")]
+    [SerializeField] float spawnInterval = 1f;
 
-    [Header("UIƒQ[ƒWiImageƒRƒ“ƒ|[ƒlƒ“ƒg‚ğƒhƒ‰ƒbƒOj")]
-    public Image gaugeImage; // fillAmount‚Åi‚ŞƒQ[ƒW
+    [Header("UIã‚²ãƒ¼ã‚¸(Image)")]
+    public Image gaugeImage;
 
-    private int collectCount = 0; // æ“¾‚µ‚½”iÅ‘å4‚Â‚Å–ƒ^ƒ“j
+    // â–¼ å†…éƒ¨çŠ¶æ…‹
+    private int collectCount = 0;  // 0ã€œ4ï¼ˆ4ã§100%ï¼‰
+    private bool canCollect = true;
+    private bool switched = false; // 100%ã§çˆ†å¼¾çŸ¢ã¸åˆ‡æ›¿æ¸ˆã¿ã‹
+
+    [SerializeField] private PlayerShooterArrowSwitcher shooter;
 
     void Start()
     {
-        if (mainCamera == null)
-            mainCamera = Camera.main;
-
-        // oŒ»ƒ‹[ƒv‚ğŠJn
+        if (mainCamera == null) mainCamera = Camera.main;
         StartCoroutine(SpawnLoop());
+        var players = GameObject.FindGameObjectWithTag("Player");
+        if (players != null)
+            shooter = players.GetComponent<PlayerShooterArrowSwitcher>();
+        
     }
 
     IEnumerator SpawnLoop()
     {
         while (true)
         {
-            SpawnRandomObject();
+            if (canCollect) SpawnRandomObject();
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
     void SpawnRandomObject()
     {
-        // ƒJƒƒ‰‚Ì‚‚³‚Æ•‚ğæ“¾
         float height = mainCamera.orthographicSize * 2f;
         float width = height * mainCamera.aspect;
+        Vector3 cam = mainCamera.transform.position;
 
-        // ƒJƒƒ‰’†S
-        Vector3 camPos = mainCamera.transform.position;
+        float x = Random.Range(cam.x - width / 2f, cam.x + width / 2f);
+        float y = Random.Range(cam.y - height / 2f, cam.y + height / 2f);
 
-        // oŒ»”ÍˆÍ
-        float minX = camPos.x - width / 2f;
-        float maxX = camPos.x + width / 2f;
-        float minY = camPos.y - height / 2f;
-        float maxY = camPos.y + height / 2f;
-
-        // ƒ‰ƒ“ƒ_ƒ€À•W
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
-        Vector3 spawnPos = new Vector3(randomX, randomY, 0f);
-
-        // ƒIƒuƒWƒFƒNƒg¶¬
-        GameObject obj = Instantiate(prefab, spawnPos, Quaternion.identity);
-
-        // uG‚ê‚½‚çÁ‚¦‚évƒXƒNƒŠƒvƒg‚ğ’Ç‰Á
-        obj.AddComponent<PickupLove>().Setup(this);
+        var obj = Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
+        obj.AddComponent<PickupLove>().Steup(this);
     }
 
-    // ƒn[ƒg‚ğE‚Á‚½‚ÉŒÄ‚Î‚ê‚é
+    // â†â†â† ã“ã“ã¾ã§ãŒ1ã¤ã®ãƒ¡ã‚½ãƒƒãƒ‰ç¾¤ã€‚ã“ã‚Œã‚ˆã‚Šä¸‹ã«ã€Œpublic void OnPickupCollected()ã€ã‚’
+    //       æ–°ã—ã„ãƒ¡ã‚½ãƒƒãƒ‰ã¨ã—ã¦ç½®ãï¼ˆä»–ãƒ¡ã‚½ãƒƒãƒ‰ã®"ä¸­"ã«å…¥ã‚Œãªã„ï¼‰
+
     public void OnPickupCollected()
     {
+        if (!canCollect) return;// æº€ã‚¿ãƒ³ãªã‚‰ç„¡è¦–
+        
         collectCount++;
-        Debug.Log($"ƒn[ƒg‚ğE‚Á‚½I ‡Œv: {collectCount}");
-
-        // fillAmountXVi4‰ñ‚Å–ƒ^ƒ“j
         if (gaugeImage != null)
-        {
-            gaugeImage.fillAmount = Mathf.Clamp01(collectCount / 4f);
-        }
+            gaugeImage.fillAmount = Mathf.Clamp01(collectCount / 4f); // 4å›ã§æº€ã‚¿ãƒ³(1.0)
 
-        // ‚à‚µ–ƒ^ƒ“‚É‚È‚Á‚½‚ç‰½‚©‹N‚±‚·
-        if (collectCount >= 4)
+        
+        if (!switched && gaugeImage != null && gaugeImage.fillAmount >= 1f)
         {
-            Debug.Log("ƒQ[ƒWMAX!! ƒpƒ[‰ğ•úI");
-            // ‚±‚±‚É•KE‹Z‚È‚Ç‚Ìˆ—‚ğ’Ç‰Á
+            // 100% åˆ°é”ã§çˆ†å¼¾çŸ¢ã«åˆ‡æ›¿ï¼†ä»¥é™ã¯æ‹¾ãˆãªã„
+             shooter?.SwitchToBomb();
+            canCollect = false;// ä»¥é™ã¯æ‹¾ãˆãªã„
+            switched = true;
+            Debug.Log("LovePower MAXï¼çˆ†å¼¾çŸ¢ãƒ¢ãƒ¼ãƒ‰ã¸");
         }
     }
+
+    // â˜…ã“ã“ãŒã‚¨ãƒ©ãƒ¼ç®‡æ‰€ã«ãªã‚Šã‚„ã™ã„ï¼šå¿…ãšã‚¯ãƒ©ã‚¹ç›´ä¸‹ã«ç½®ã
+    public void ResetPower()
+    {
+        collectCount = 0;
+        canCollect = true;
+        switched = false;               // æº€ã‚¿ãƒ³ãƒ•ãƒ©ã‚°ã‚‚æˆ»ã™
+
+        if (gaugeImage != null) gaugeImage.fillAmount = 0f;
+
+        // 0% ã«ãªã£ãŸã‚‰é€šå¸¸çŸ¢ã¸æˆ»ã™
+        if (shooter != null) shooter.SwitchToNormal();
+
+        Debug.Log("LovePowerãƒªã‚»ãƒƒãƒˆ â†’ 0% / å†å–å¾—OK / é€šå¸¸çŸ¢ã«æˆ»ã™");
+    }
+
+    // pickupã‹ã‚‰å‚ç…§ã§ãã‚‹èª­ã¿å–ã‚Šå°‚ç”¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+    public bool CanCollect => canCollect;
 }

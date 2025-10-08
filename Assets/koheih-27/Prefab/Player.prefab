@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 2280544640805726588, guid: c416066d45903c444b28d1024a3aae03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3594436947582079410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28274be6dd8dade46a27f2f801dc4d9d, type: 3}
   m_Name: 
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  startDelay: 3
 --- !u!70 &1734808218062586478
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,6 +203,9 @@ MonoBehaviour:
   normalArrowPrefab: {fileID: 7553182372856597097, guid: f1ea22234883a7c4181c2ebf07310331, type: 3}
   bombArrowPrefab: {fileID: 6377756233629287507, guid: 57e66f029074a0947a98a9a0604a1ab3, type: 3}
   shootPoint: {fileID: 7944248840245210302}
+  typeText: {fileID: 0}
+  currentType: 0
+  love: {fileID: 4907819995751091873, guid: aaa29e055d1a55349ab6750e46e1f824, type: 3}
   fireInterval: 0.25
 --- !u!1 &4126268274051631914
 GameObject:
@@ -214,7 +218,7 @@ GameObject:
   - component: {fileID: 7944248840245210302}
   m_Layer: 0
   m_Name: ShootPoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

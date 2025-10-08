@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 3adf4a0799564f849b3d39f2f6cccd21
+guid: b377185b696ece04e985b6ee483d97b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2716817066361230283
-    second: Heartkaku_01_0
+      213: -827342574360802172
+    second: explosion_effect4_0
   - first:
-      213: 8405686241658641138
-    second: Heartkaku_01_1
+      213: 4866051128745006017
+    second: explosion_effect4_1
+  - first:
+      213: -9095139287609323743
+    second: explosion_effect4_2
+  - first:
+      213: 6887602400681509816
+    second: explosion_effect4_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,6 +119,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -129,13 +148,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heartkaku_01_0
+      name: explosion_effect4_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 142
-        width: 15
-        height: 23
+        x: 189
+        y: 274
+        width: 44
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53ce1dfb54deb4ad0800000000000000
-      internalID: -2716817066361230283
+      spriteID: 48ccaa3ef40b484f0800000000000000
+      internalID: -827342574360802172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heartkaku_01_1
+      name: explosion_effect4_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 19
-        width: 119
-        height: 216
+        x: 218
+        y: 261
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +185,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fa937ff91ff6a470800000000000000
-      internalID: 8405686241658641138
+      spriteID: 1c31cbb58bfa78340800000000000000
+      internalID: 4866051128745006017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_effect4_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 149
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fc85b810397c180800000000000000
+      internalID: -9095139287609323743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_effect4_3
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 197
+        width: 77
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3cfbe24eda59f50800000000000000
+      internalID: 6887602400681509816
       vertices: []
       indices: 
       edges: []
@@ -186,8 +249,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heartkaku_01_0: -2716817066361230283
-      Heartkaku_01_1: 8405686241658641138
+      explosion_effect4_0: -827342574360802172
+      explosion_effect4_1: 4866051128745006017
+      explosion_effect4_2: -9095139287609323743
+      explosion_effect4_3: 6887602400681509816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
