@@ -9,21 +9,20 @@ public class SEManager : MonoBehaviour
     [Header("同時に再生できるSEの最大数")]
     [SerializeField] private int seSourceCount = 5;
 
-    [Header("SE音量（0～1）")]
-    [Range(0.0f, 1.0f)]
-    [SerializeField] private float seVolume = 1.0f;
-
     // SEを再生するためのスピーカー
     private List<AudioSource> seSources = new List<AudioSource>();
 
-    private void Awake()
+    // 初期化
+    public void Init(SoundDatabase db)
     {
+        database = db;
+
         // 指定した数のseSourceを設定
         for (int i = 0; i < seSourceCount; i++)
         {
             // 音量設定して追加
             AudioSource source = gameObject.AddComponent<AudioSource>();
-            source.volume = seVolume;
+            source.volume = database.SeVolume;
             seSources.Add(source);
         }
     }
@@ -69,17 +68,17 @@ public class SEManager : MonoBehaviour
         {
             if (source != null)
             {
-                source.volume = seVolume;
+                source.volume = database.SeVolume;
             }
         }
     }
 
     public void SetVolume(float volume)
     {
-        seVolume = Mathf.Clamp01(volume);
+        database.SeVolume = Mathf.Clamp01(volume);
         foreach (AudioSource source in seSources)
         {
-            source.volume = seVolume;
+            source.volume = database.SeVolume;
         }
     }
 }
