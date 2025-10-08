@@ -5,24 +5,27 @@ using UnityEngine;
 /// </summary>
 public class PickupLove : MonoBehaviour
 {
-    private LovePower manager;
+    [SerializeField]private LovePower manager;
 
-    // 呼び出し元（LovePower）を登録
-    public void Setup(LovePower mgr)
+    public void Steup(LovePower power) { manager = power; }
+
+    private void Awake()
     {
-        manager = mgr;
-        // Colliderがなければ自動で付ける
+        if(manager == null)  manager = FindAnyObjectByType<LovePower>();
+
         var col = GetComponent<Collider2D>();
-        if (col == null) col = gameObject.AddComponent<CircleCollider2D>();
+        if(col == null) col = gameObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
+
+        if (other.CompareTag("Player")) return;
+        
+        if(manager != null)
             manager.OnPickupCollected(); // LovePower に報告
             Destroy(gameObject);         // 自分を消す
-        }
+        
     }
 }
