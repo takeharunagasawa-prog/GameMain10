@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using System.Collections.Generic;
 
 public class CoreController : MonoBehaviour
@@ -9,15 +8,6 @@ public class CoreController : MonoBehaviour
 
     [Header("現在コアに触れている敵の数")]
     [SerializeField] private int currentEnemyCount = 0;
-
-    /*
-    [Header("敵の数を表示するTextMeshProのUI")]
-    [SerializeField] private TMP_Text enemyCountText;
-
-    [Header("表示モード切り替え")]
-    [Tooltip("true = 当たっている敵の数 / false = 残り許容数")]
-    [SerializeField] private bool showCurrentCount = true;
-    */
 
     [Header("ゲームオーバーのフラグ")]
     [SerializeField] private bool isGameOver = false;
@@ -31,9 +21,16 @@ public class CoreController : MonoBehaviour
         set { isGameOver = value; }
     }
 
-    private void Start()
+    public int MaxEnemyCount
     {
-        // UpdateEnemyCountUI();
+        get { return maxEnemyCount; }
+        set { maxEnemyCount = value; }
+    }
+
+    public int CurrentEnemyCount
+    {
+        get { return currentEnemyCount; }
+        set { currentEnemyCount = value; }
     }
 
     // 敵が当たった瞬間
@@ -51,7 +48,6 @@ public class CoreController : MonoBehaviour
                 // リストに追加し、リストの数で管理
                 touchingEnemies.Add(enemyRb);
                 currentEnemyCount = touchingEnemies.Count;
-                // UpdateEnemyCountUI();
             }
         }
 
@@ -77,32 +73,7 @@ public class CoreController : MonoBehaviour
                 // リストから削除し、リストの数で管理
                 touchingEnemies.Remove(enemyRb);
                 currentEnemyCount = touchingEnemies.Count;
-                // UpdateEnemyCountUI();
             }
         }
     }
-
-    // 敵が当たっている間
-
-
-    /*
-    // 当たっている敵の数をカウント・更新
-    private void UpdateEnemyCountUI()
-    {
-        // テキスト設定チェック
-        if (enemyCountText == null) return;
-
-        if (showCurrentCount == true)
-        {
-            // 「当たっている敵の数」を表示
-            enemyCountText.text = $"{currentEnemyCount}";
-        }
-        else
-        {
-            // 「残り耐えられる敵の数」を表示
-            int remaining = Mathf.Max(0, maxEnemyCount - currentEnemyCount);
-            enemyCountText.text = $"{remaining}";
-        }
-    }
-    */
 }
