@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &252885316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8332538814601334586, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
+  m_PrefabInstance: {fileID: 1274518621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &293427697
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +441,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &467251207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3594436947582079410, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+  m_PrefabInstance: {fileID: 682976392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &467251215
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467251207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d0cac319cbc21a479dfe914af060d7e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &647527242
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +686,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3594436947582079410, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467251215}
   m_SourcePrefab: {fileID: 100100000, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
 --- !u!1001 &1077469016
 PrefabInstance:
@@ -980,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7237639105720304617, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
+      propertyPath: core
+      value: 
+      objectReference: {fileID: 252885316}
     - target: {fileID: 7237639105720304617, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
       propertyPath: enemyPrefab
       value: 

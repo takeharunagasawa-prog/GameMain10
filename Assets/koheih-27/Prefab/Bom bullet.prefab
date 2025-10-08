@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  lifeTime: 1.5
+  lifeTime: 5
   explosionPrefab: {fileID: 3337909948722638635, guid: 47631c8662825534b9d56a6730799b8a, type: 3}
+  targetTag: Enemy
   moveDir: {x: 1, y: 0}

@@ -63,8 +63,9 @@ public class LovePower : MonoBehaviour
         if (!canCollect) return;// 満タンなら無視
         
         collectCount++;
+
         if (gaugeImage != null)
-            gaugeImage.fillAmount = Mathf.Clamp01(collectCount / 4f); // 4回で満タン(1.0)
+            gaugeImage.fillAmount = Mathf.Clamp01(collectCount / collectCount); // 4回で満タン(1.0)
 
         
         if (!switched && gaugeImage != null && gaugeImage.fillAmount >= 1f)

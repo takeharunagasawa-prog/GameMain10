@@ -8,8 +8,7 @@ public class EnemiMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Šj‚ğ–¼‘O‚Å’T‚·
-        core = GameObject.Find("Core").transform;
+        
     }
 
     // Update is called once per frame
@@ -24,6 +23,10 @@ public class EnemiMove : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, core.position, speed * Time.deltaTime);
     }
 
+    public void SetTarget(Transform target)
+    {
+        core = target;
+    } 
          //ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é
     private void OnTriggerEnter2D(Collider2D collision)
     {
