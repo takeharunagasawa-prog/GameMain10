@@ -726,7 +726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 647527244}
-  startTime: 60
+  startTime: 10
+  sceneConditions: {fileID: 2123586976}
 --- !u!1001 &682976392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +736,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1873852294285644882, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      propertyPath: startDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2579464092509703794, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: love
       value: 
@@ -1189,6 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coreController: {fileID: 1937564339}
+  borderNum: 30
 --- !u!4 &2123586977
 Transform:
   m_ObjectHideFlags: 0

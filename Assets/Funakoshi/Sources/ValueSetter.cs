@@ -9,6 +9,6 @@ public class ValueSetter : MonoBehaviour
     {
         // ƒV[ƒ“‚ğŒ×‚¢‚Å‚«‚½’l‚ğ‚±‚±‚Å‘ã“ü‚µ‚Ü‚·
 
-        killsCount.InitalSetValue(8000);
+        killsCount.InitalSetValue(ScoreManager.Instance.GetKillNum());
     }
 }

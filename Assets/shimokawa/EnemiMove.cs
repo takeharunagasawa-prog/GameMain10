@@ -64,7 +64,7 @@ public class EnemiMove : MonoBehaviour
     {
         if (!isActive) { return; }
         isActive = false;
-
+        ScoreManager.Instance.CountKillNum();
         animator.SetTrigger("Defeated");
         if (isExplode) 
         {
