@@ -50,7 +50,11 @@ public class Explosion : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
 
-            Destroy(other.gameObject);// 爆発エフェクト
+            EnemiMove enemiMove = other.GetComponent<EnemiMove>();
+            if (enemiMove != null)
+            {
+                enemiMove.Defeated(true);
+            }
 
         }
 

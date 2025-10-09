@@ -51,16 +51,14 @@ public class Arrow : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             // “G‚ğÁ‚·
-            Destroy(other.gameObject);
+            EnemiMove enemiMove = other.GetComponent<EnemiMove>();
+            if (enemiMove != null)
+            {
+                enemiMove.Defeated(false);
+            }
 
             // –î‚àÁ‚·
             Destroy(gameObject);
         }
-        else
-        {
-            // •Ç‚È‚Ç‚É“–‚½‚Á‚½‚ç–î‚¾‚¯Á‚¦‚é
-            Destroy(gameObject);
-        }
-            
     }
 }
