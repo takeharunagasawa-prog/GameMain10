@@ -77,6 +77,7 @@ public class LovePower : MonoBehaviour
             {
                 heartMax.enabled = true;
             }
+            else
             {
                 Debug.LogError("heartMax is Null !");
             }
@@ -102,6 +103,7 @@ public class LovePower : MonoBehaviour
         {
             heartMax.enabled = false;
         }
+        else 
         {
             Debug.LogError("heartMax is Null !");
         }
