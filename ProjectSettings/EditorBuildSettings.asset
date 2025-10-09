@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/nishida-777/Scene/GameMain.unity
     guid: f4a04357d34c6a7408612d7d8e8a4ca6
   - enabled: 1
-    path: Assets/nishida-777/Scene/Game Over.unity
+    path: Assets/nishida-777/Scene/GameOver.unity
     guid: 2223a5275d68c1f499bd7305d17c0d9d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
