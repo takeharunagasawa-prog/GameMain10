@@ -79,7 +79,7 @@ public class BombBullet : MonoBehaviour
         {
             
             Explode();// 爆発エフェクト
-            Destroy(other.gameObject);// 敵を消す
+            
         }
         
     }
