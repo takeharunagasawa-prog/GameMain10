@@ -627,6 +627,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2579464092509703794, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      propertyPath: love
+      value: 
+      objectReference: {fileID: 8284191696275231567}
     - target: {fileID: 3068266691954071870, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.93
@@ -1180,6 +1184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7054223442744045744, guid: c46e28d7e678a8d4280f4599897a6382, type: 3}
     - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: gaugeImage
+      value: 
+      objectReference: {fileID: 1174784048}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 293427699}
@@ -1284,6 +1292,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8284191696275231567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+  m_PrefabInstance: {fileID: 8284191696275231564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284191696275231565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcbece859eec1d41ae07c7ec3666678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
