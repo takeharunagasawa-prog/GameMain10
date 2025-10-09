@@ -8,6 +8,7 @@ public class EnemiMove : MonoBehaviour
     [SerializeField] private Transform core;         //äjÇÃà íuèÓïÒ
     [SerializeField] private GameObject explossion;
     [SerializeField] private GameObject arrowHit;
+    [SerializeField] private GameObject enemyDrops;
     private Animator animator;
     private bool isActive = true;
 
@@ -35,16 +36,35 @@ public class EnemiMove : MonoBehaviour
     {
         core = target;
     }
+
+    private void Vanish()
+    {
+        GameObject droppedItems = Instantiate(enemyDrops, transform.position, Quaternion.identity);
+        EnemyDrops ed = droppedItems.GetComponent<EnemyDrops>();
+        if (ed != null)
+        {
+            ed.SetTarget(core);
+        }
+        Destroy(gameObject);
+    }
+
     private void Explossion()
     {
-        Instantiate(explossion, transform.position, Quaternion.identity);
+        GameObject explode = Instantiate(explossion, transform.position, Quaternion.identity);
+        EnemyExplossion enemyExplossion = explode.GetComponent<EnemyExplossion>();
+        if (enemyExplossion != null)
+        {
+            Debug.Log("Set");
+            enemyExplossion.SetTarget(core);
+        }
+
         Destroy(gameObject);
     }
     public void Defeated(bool isExplode)
     {
         if (!isActive) { return; }
         isActive = false;
-
+        ScoreManager.Instance.CountKillNum();
         animator.SetTrigger("Defeated");
         if (isExplode) 
         {
@@ -53,7 +73,7 @@ public class EnemiMove : MonoBehaviour
         else
         {
             Instantiate(arrowHit, transform.position, Quaternion.identity);
-            Destroy(gameObject, vanishTime);
+            Invoke("Vanish", explossionVanishTime);
         }
     }
 }

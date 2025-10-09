@@ -13,6 +13,9 @@ public class StageTimer : MonoBehaviour
     private float currentTime;
     private bool isRunning = true;
 
+    [SerializeField]
+    private SceneConditions sceneConditions;
+
     void Start()
     {
         currentTime = startTime;
@@ -31,6 +34,7 @@ public class StageTimer : MonoBehaviour
                 currentTime = 0;
                 isRunning = false;
                 // ここで何か終了処理を呼んでもOK
+                sceneConditions.TimeIsOver();
             }
 
             // 表示を更新

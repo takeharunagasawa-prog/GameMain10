@@ -14,6 +14,12 @@ public class SceneConditions : MonoBehaviour
     private GameScene scene = GameScene.GameMain;
 
     [SerializeField] CoreController coreController;
+
+    [SerializeField]
+    private int borderNum = 30;
+
+    private bool isTimeOver = false;
+
     void Start()
     {
 
@@ -28,13 +34,34 @@ public class SceneConditions : MonoBehaviour
                 if(coreController.IsGameOver == true)
                 {
                     scene = GameScene.GameOver;
-                    SceneManager.LoadScene("Game Over");
+                }
+                if(isTimeOver == true)
+                {
+                    int killNum = ScoreManager.Instance.GetKillNum();
+
+                    if(killNum >= borderNum)
+                    {
+                        scene = GameScene.GameClear;
+                    }
+                    else
+                    {
+                        scene = GameScene.GameOver;
+                    }
                 }
                 break;
 
             case GameScene.GameOver:
+                SceneManager.LoadScene("GameOver");
+                break; 
 
+            case GameScene.GameClear:
+                SceneManager.LoadScene("GameClear");
                 break;
         }
+    }
+
+    public void TimeIsOver()
+    {
+        isTimeOver = true;
     }
 }
