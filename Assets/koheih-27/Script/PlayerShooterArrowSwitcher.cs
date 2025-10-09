@@ -39,26 +39,10 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time - lastFireTime >= fireInterval)
+        // アニメ用の値を渡す（Animatorがある場合）
+        if (Input.GetMouseButtonDown(0))
         {
-            Fire();
-            lastFireTime = Time.time;
-            if (Input.GetKey(KeyCode.W))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                animator.SetTrigger("Move");
-            }
+            animator.SetTrigger("Attack");
         }
     }
 
