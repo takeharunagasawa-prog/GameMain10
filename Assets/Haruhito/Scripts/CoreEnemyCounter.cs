@@ -46,7 +46,7 @@ public class CoreEnemyCounter : MonoBehaviour
         {
             // 「残り耐えられる敵の数」を表示
             int remaining = Mathf.Max(0, coreController.MaxEnemyCount - coreController.CurrentEnemyCount);
-            coreEnemyCounterText.text = remaining.ToString();
+            coreEnemyCounterText.text = "残り" + remaining.ToString() + "体";
         }
     }
 }

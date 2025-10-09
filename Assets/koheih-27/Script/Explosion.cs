@@ -43,5 +43,17 @@ public class Explosion : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // 敵に当たったら爆発&敵を消す
+        if (other.CompareTag("Enemy"))
+        {
+
+            Destroy(other.gameObject);// 爆発エフェクト
+
+        }
+
+    }
 }
 

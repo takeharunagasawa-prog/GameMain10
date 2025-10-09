@@ -51,11 +51,7 @@ public class PlayerMovement2D : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");    // W/S or ↑/↓
         input = new Vector2(x, y).normalized;      // 斜めで速くならないよう正規化
 
-        // アニメ用の値を渡す（Animatorがある場合）
-        if (Input.GetMouseButton(0))
-        {
-            animator.SetTrigger("Attack");
-        }
+        
     }
 
     void FixedUpdate()

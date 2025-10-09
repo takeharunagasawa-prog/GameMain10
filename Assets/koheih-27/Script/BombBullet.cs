@@ -77,8 +77,9 @@ public class BombBullet : MonoBehaviour
         // 敵に当たったら爆発&敵を消す
         if (other.CompareTag(targetTag))
         {
-            Destroy(other.gameObject);// 敵を消す
+            
             Explode();// 爆発エフェクト
+            
         }
         
     }
