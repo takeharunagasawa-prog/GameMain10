@@ -151,8 +151,8 @@ MonoBehaviour:
   core: {fileID: 0}
   enemyPrefab: {fileID: 4975753052195921801, guid: 0fc4d332fe83cce47bf1db5658f7e6cc, type: 3}
   spawnInterval: 5
-  minspawnRange: {x: -12, y: -9}
-  maxspawnRange: {x: 12, y: 9}
+  minspawnRange: {x: 0, y: 1.5}
+  maxspawnRange: {x: 0, y: 1.5}
 --- !u!4 &545449722
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +168,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585296297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6689380021621685798, guid: 6cd13fba0c361174c906a3c5e671e28d, type: 3}
+  m_PrefabInstance: {fileID: 6682461689897781300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &798734688
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,12 +532,16 @@ PrefabInstance:
       objectReference: {fileID: 1058787082}
     - target: {fileID: 8212782876810445023, guid: c41637d10869d5d478c91420c6f96ec8, type: 3}
       propertyPath: showCurrentCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8212782876810445023, guid: c41637d10869d5d478c91420c6f96ec8, type: 3}
       propertyPath: coreEnemyCounterText
       value: 
       objectReference: {fileID: 1523823722}
+    - target: {fileID: 8212782876810445023, guid: c41637d10869d5d478c91420c6f96ec8, type: 3}
+      propertyPath: coreEnemyCounterSlider
+      value: 
+      objectReference: {fileID: 585296297}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
