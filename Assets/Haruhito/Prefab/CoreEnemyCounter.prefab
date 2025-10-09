@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coreEnemyCounterText: {fileID: 0}
+  coreEnemyCounterSlider: {fileID: 0}
   showCurrentCount: 1
   coreController: {fileID: 0}
