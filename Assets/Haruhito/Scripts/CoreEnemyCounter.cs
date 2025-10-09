@@ -10,7 +10,7 @@ public class CoreEnemyCounter : MonoBehaviour
     [Tooltip("true = 当たっている敵の数 / false = 残り許容数")]
     [SerializeField] private bool showCurrentCount = true;
 
-    [Header("Core（CoreControllerがついたオブジェクト）")]
+    [Header("core（CoreControllerがついたオブジェクト）")]
     [SerializeField] private CoreController coreController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
