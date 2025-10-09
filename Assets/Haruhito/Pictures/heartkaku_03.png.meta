@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 4348121531913120178
     second: heartkaku_03_0
+  - first:
+      213: -260163510604043022
+    second: heartkaku_03_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,10 +132,10 @@ TextureImporter:
       name: heartkaku_03_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 15
-        width: 130
-        height: 224
+        x: 63
+        y: 142
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,6 +146,28 @@ TextureImporter:
       bones: []
       spriteID: 2b9a8e5fe71a75c30800000000000000
       internalID: 4348121531913120178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartkaku_03_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 118
+        width: 124
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc6dee5aa6b36cf0800000000000000
+      internalID: -260163510604043022
       vertices: []
       indices: 
       edges: []
