@@ -22,6 +22,7 @@ public class LovePower : MonoBehaviour
     private bool switched = false; // 100%で爆弾矢へ切替済みか
 
     [SerializeField] private PlayerShooterArrowSwitcher shooter;
+    [SerializeField] private Image heartMax;
 
     void Start()
     {
@@ -72,6 +73,14 @@ public class LovePower : MonoBehaviour
         {
             // 100% 到達で爆弾矢に切替＆以降は拾えない
              shooter?.SwitchToBomb();
+            if(heartMax)
+            {
+                heartMax.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("heartMax is Null !");
+            }
             canCollect = false;// 以降は拾えない
             switched = true;
             Debug.Log("LovePower MAX！爆弾矢モードへ");
@@ -90,6 +99,14 @@ public class LovePower : MonoBehaviour
         // 0% になったら通常矢へ戻す
         if (shooter != null) shooter.SwitchToNormal();
 
+        if (heartMax)
+        {
+            heartMax.enabled = false;
+        }
+        else 
+        {
+            Debug.LogError("heartMax is Null !");
+        }
         Debug.Log("LovePowerリセット → 0% / 再取得OK / 通常矢に戻す");
     }
 
