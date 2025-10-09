@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b560411ee983049b8557bdce0e7ef6, type: 3}
   m_Name: ParticleSettings
   m_EditorClassIdentifier: 
-  particleCount: 5
-  particleSize: 3
+  particleCount: 7
+  particleSize: 2
   emissionIntensity: 20
   emitDuration: 0.7
   emittingSpeedMultiplier: 0.98
   stayDuration: 0
-  moveDuration: 0.8
+  moveDuration: 0.3
   launchPower: 1
-  moveAccelaration: 0.0005
-  moveMaxSpeed: 13
+  moveAccelaration: 0.1
+  moveMaxSpeed: 12

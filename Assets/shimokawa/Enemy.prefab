@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1512265375
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7450601880952944154, guid: f0071058e1b2e164a8d1299ba82f38a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,6 +111,7 @@ MonoBehaviour:
   core: {fileID: 6943349673309942492, guid: 4912a623da5199e44bbb0a596d597203, type: 3}
   explossion: {fileID: 2379199432524172259, guid: 88c2ffa9330fc7c40beb8c2fd2a9f448, type: 3}
   arrowHit: {fileID: 2871932204060904130, guid: add7e77c5d40e8c4aab2bf8b24cae6f5, type: 3}
+  enemyDrops: {fileID: 7931317437971596895, guid: 288fefa25f67bf342ae50e7eac7a2417, type: 3}
 --- !u!61 &4702418136450949018
 BoxCollider2D:
   m_ObjectHideFlags: 0
