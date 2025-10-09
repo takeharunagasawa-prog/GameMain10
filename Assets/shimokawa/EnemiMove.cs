@@ -4,11 +4,12 @@ public class EnemiMove : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;          //“G‚ÌˆÚ“®‘¬“x
     [SerializeField] private Transform core;         //Šj‚ÌˆÊ’uî•ñ
+    private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,5 +27,10 @@ public class EnemiMove : MonoBehaviour
     public void SetTarget(Transform target)
     {
         core = target;
-    } 
+    }
+    
+    public void Defeated(bool isExplode)
+    {
+        animator.SetTrigger("Defeated");
+    }
 }
