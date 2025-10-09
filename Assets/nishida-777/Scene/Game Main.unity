@@ -1120,6 +1120,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7054223442744045744, guid: c46e28d7e678a8d4280f4599897a6382, type: 3}
     - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: gaugeImage
+      value: 
+      objectReference: {fileID: 1174784048}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 293427699}

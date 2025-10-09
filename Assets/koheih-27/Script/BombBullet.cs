@@ -77,8 +77,9 @@ public class BombBullet : MonoBehaviour
         // “G‚É“–‚½‚Á‚½‚ç”š”­&“G‚ğÁ‚·
         if (other.CompareTag(targetTag))
         {
-            Destroy(other.gameObject);// “G‚ğÁ‚·
+            
             Explode();// ”š”­ƒGƒtƒFƒNƒg
+            Destroy(other.gameObject);// “G‚ğÁ‚·
         }
         
     }

@@ -71,7 +71,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         mouseWorld.z = 0f;
         Vector2 dir = (mouseWorld - shootPoint.position).normalized;
 
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = (Mathf.Atan2(dir.y, dir.x) + Mathf.PI) * Mathf.Rad2Deg;
         Quaternion rotZ = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject prefab = (currentType == ArrowType.Normal) ? normalArrowPrefab : bombArrowPrefab;
