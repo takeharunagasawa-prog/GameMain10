@@ -2,6 +2,7 @@
 // BGM‚ÌŽí—Þ
 public enum BGMType
 {
+    Title,
     Battle,
     Finish,
     Succeed,
@@ -19,4 +20,6 @@ public enum SEType
     Kiken,
     Time1,
     GetItem,
+    Click,
+    MouseOver,
 }

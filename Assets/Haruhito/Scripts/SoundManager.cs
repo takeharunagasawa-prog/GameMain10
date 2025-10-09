@@ -38,7 +38,10 @@ public class SoundManager : MonoBehaviour
         bgmManager.Init(database);
         seManager.Init(database);
     }
-
+    public SoundDatabase GetSoundDataBase()
+    {
+        return database;
+    }
     // ŠO•”‚©‚ç‘€ì‚Å‚«‚é‚æ‚¤‚É‚·‚é
     public void PlayBGM(BGMType type) => bgmManager.Play(type);
     public void StopBGM() => bgmManager.Stop();
