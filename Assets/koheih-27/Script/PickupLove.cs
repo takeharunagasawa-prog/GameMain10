@@ -21,7 +21,7 @@ public class PickupLove : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Enemy")) return;
+        if (!other.CompareTag("Player")) return;
         
         if(manager != null)
             manager.OnPickupCollected(); // LovePower Ç…ïÒçê
