@@ -34,13 +34,9 @@ public class PlayerMovement2D : MonoBehaviour
             return;
         }
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); // なくてもOK
+        animator = GetComponent<Animator>(); // Animatorコンポーネントを取得
 
-        // 2D見下ろしに最適化
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 0f;
-        rb.freezeRotation = true;
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        
     }
 
     void Update()
@@ -50,26 +46,15 @@ public class PlayerMovement2D : MonoBehaviour
         if (timer >= startDelay)
             canMove = true;
 
-        //動けない間は入力もアニメも更新しない（一時的に）
-        if (!canMove)
-        {
-            // アニメーション停止用（一時的に）
-            if (animator)
-                animator.SetFloat("Speed", 0f);
-            return;
-        }
-
         // キーボード入力（-1～1）
         float x = Input.GetAxisRaw("Horizontal");  // A/D or ←/→
         float y = Input.GetAxisRaw("Vertical");    // W/S or ↑/↓
         input = new Vector2(x, y).normalized;      // 斜めで速くならないよう正規化
 
         // アニメ用の値を渡す（Animatorがある場合）
-        if (animator)
+        if (Input.GetMouseButton(0))
         {
-            animator.SetFloat("Speed", input.sqrMagnitude); // 0なら停止、>0で歩き
-            animator.SetFloat("MoveX", input.x);
-            animator.SetFloat("MoveY", input.y);
+            animator.SetTrigger("Attack");
         }
     }
 

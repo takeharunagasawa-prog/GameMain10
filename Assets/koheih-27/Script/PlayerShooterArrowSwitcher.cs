@@ -16,6 +16,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     [Header("UI(任意)")]
     public Text typeText;
 
+    private Animator animator;
+
     [SerializeField] private ArrowType currentType = ArrowType.Normal; // ← 発射に使う源泉
     [SerializeField] private LovePower love;
     [SerializeField] float fireInterval = 0.25f;
@@ -25,11 +27,11 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     void Awake()
     {
         if (love == null) love = FindAnyObjectByType<LovePower>(); // 1回だけ取ってキャッシュ
-        
+        animator = GetComponent<Animator>();
     }
 
 
-    void ApplyTypeVisuals()
+    void ApplyTypeVisuals()//消去可能
     {
         if (typeText != null)
             typeText.text = (currentType == ArrowType.Bomb) ? "💣 爆弾矢" : "▶ 通常矢";
@@ -41,6 +43,22 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         {
             Fire();
             lastFireTime = Time.time;
+            if (Input.GetKey(KeyCode.W))
+            {
+                animator.SetTrigger("Move");
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                animator.SetTrigger("Move");
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                animator.SetTrigger("Move");
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                animator.SetTrigger("Move");
+            }
         }
     }
 
@@ -60,7 +78,10 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         if (prefab == null) { Debug.LogWarning("Prefab未設定: " + currentType); return; }
 
         var shot = Instantiate(prefab, shootPoint.position, rotZ);
-
+        if(currentType == ArrowType.Bomb)
+        {
+            Debug.LogWarning(prefab.name);
+        }
         var arrow = shot.GetComponent<Arrow>(); if (arrow != null) arrow.moveDir = dir;
         var bomb = shot.GetComponent<BombBullet>(); if (bomb != null) bomb.moveDir = dir;
 
@@ -68,7 +89,6 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         if (currentType == ArrowType.Bomb)
         {
             love?.ResetPower();   // 0%＆再取得許可
-                                
         }
     }
 }

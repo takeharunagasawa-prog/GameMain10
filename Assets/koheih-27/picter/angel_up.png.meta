@@ -142,28 +142,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angel_up_0
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 84
-        width: 10
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8229da7d4bc15dc80800000000000000
-      internalID: -8298695175322103256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: angel_up_1
       rect:
         serializedVersion: 2
@@ -172,7 +150,7 @@ TextureImporter:
         width: 187
         height: 249
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,7 +167,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 847e2a41dbf446a458d6dfc15bfa03a1
     internalID: 0
     vertices: []
     indices: 

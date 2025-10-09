@@ -2,7 +2,7 @@
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Transform core;         //プレイヤーの位置情報
+    [SerializeField]private Transform core;         //プレイヤーの位置情報
 
     [SerializeField] private GameObject enemyPrefab;  //生成する敵のプレハブ
     [SerializeField] private float spawnInterval = 5f; //生成間隔（秒）
@@ -14,8 +14,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        //プレイヤーを名前で探す
-        core = GameObject.Find("Core").transform;
+        
         SpawnEnemy();
     }
 
@@ -41,9 +40,10 @@ public class EnemySpawner : MonoBehaviour
         float x = Random.Range(minspawnRange.x, maxspawnRange.x);
         float y = Random.Range(minspawnRange.y, maxspawnRange.y);
         Vector2 spawnPos = new Vector2(x, y);
-
-        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-       //敵を生成する
-
+        //敵を生成する
+        GameObject gameObject = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        EnemiMove enemiMove = gameObject.GetComponent<EnemiMove>();
+        enemiMove.SetTarget(core);
+        
     }
 }
