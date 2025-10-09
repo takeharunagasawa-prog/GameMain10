@@ -18,6 +18,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
 
     private Animator animator;
 
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField] private ArrowType currentType = ArrowType.Normal; // ← 発射に使う源泉
     [SerializeField] private LovePower love;
     [SerializeField] float fireInterval = 0.25f;
@@ -28,6 +30,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     {
         if (love == null) love = FindAnyObjectByType<LovePower>(); // 1回だけ取ってキャッシュ
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
