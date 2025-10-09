@@ -16,7 +16,7 @@ public class GameTitleScene : MonoBehaviour
         //ƒ^ƒCƒgƒ‹‰æ–Ê‚ÌBGMÄ¶
         SoundManager.Instance.PlayBGM(BGMType.Title);
 
-
+        GameInitializer.Instance.SetUpGameInitialize(); 
 
     }
 
@@ -27,7 +27,7 @@ public class GameTitleScene : MonoBehaviour
     /// </summary>
     public void SceneChange()
     {
-
+        AudioManager.Instance.PlaySEById(SEName.Click);
         SceneManager.LoadScene("GameMain");
 
     }
