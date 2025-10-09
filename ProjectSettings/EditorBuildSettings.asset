@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Yamashina/TitleScene.unity
     guid: f38d1de13073a7244b734e8056e49f97
   - enabled: 1
-    path: Assets/nishida-777/Scene/Game Main.unity
+    path: Assets/nishida-777/Scene/GameMain.unity
     guid: f4a04357d34c6a7408612d7d8e8a4ca6
   - enabled: 1
     path: Assets/nishida-777/Scene/Game Over.unity
