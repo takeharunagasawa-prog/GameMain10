@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SEManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class SEManager : MonoBehaviour
         }
     }
 
+   
+
     // 再生
     public void Play(SEType type)
     {
@@ -45,21 +48,34 @@ public class SEManager : MonoBehaviour
         }
 
         AudioClip clip = database.seClips[index];
+        if (clip == null)
+        {
+            //エラー出して終了
+            Debug.LogWarning("[SEManager] 再生対象の SE AudioClip が null です。");
+            return;
+        }
+        else
+        {
+            Debug.Log(clip.name);
+
+        }
 
         // 再生していないスピーカーを探す
         foreach (AudioSource source in seSources)
-        {
-            // 再生していない場合、設定して再生
-            if (source.isPlaying == false)
             {
-                source.clip = clip;
-                source.Play();
+                // 再生していない場合、設定して再生
+                if (source.isPlaying == false)
+                {
+                    source.clip = clip;
+                    Debug.Log(clip.name);
+
+                    source.PlayOneShot(clip); ;
+                }
             }
-        }
 
         // 見つからなかったら、0番地を強制的に使用
         seSources[0].clip = clip;
-        seSources[0].Play();
+        seSources[0].PlayOneShot(clip);
     }
 
     private void OnValidate()
