@@ -18,6 +18,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
 
     private Animator animator;
 
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField] private ArrowType currentType = ArrowType.Normal; // ← 発射に使う源泉
     [SerializeField] private LovePower love;
     [SerializeField] float fireInterval = 0.25f;
@@ -28,6 +30,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     {
         if (love == null) love = FindAnyObjectByType<LovePower>(); // 1回だけ取ってキャッシュ
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -39,26 +42,10 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time - lastFireTime >= fireInterval)
+        // アニメ用の値を渡す（Animatorがある場合）
+        if (Input.GetMouseButtonDown(0))
         {
-            Fire();
-            lastFireTime = Time.time;
-            if (Input.GetKey(KeyCode.W))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                animator.SetTrigger("Move");
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                animator.SetTrigger("Move");
-            }
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -71,7 +58,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         mouseWorld.z = 0f;
         Vector2 dir = (mouseWorld - shootPoint.position).normalized;
 
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = (Mathf.Atan2(dir.y, dir.x) + Mathf.PI) * Mathf.Rad2Deg;
         Quaternion rotZ = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject prefab = (currentType == ArrowType.Normal) ? normalArrowPrefab : bombArrowPrefab;

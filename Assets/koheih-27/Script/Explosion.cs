@@ -43,5 +43,21 @@ public class Explosion : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // “G‚É“–‚½‚Á‚½‚ç”š”­&“G‚ğÁ‚·
+        if (other.CompareTag("Enemy"))
+        {
+
+            EnemiMove enemiMove = other.GetComponent<EnemiMove>();
+            if (enemiMove != null)
+            {
+                enemiMove.Defeated(true);
+            }
+
+        }
+
+    }
 }
 

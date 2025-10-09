@@ -4,6 +4,8 @@ public enum BGMType
 {
     Battle,
     Finish,
+    Succeed,
+    Failed,
 }
 
 // SE‚ÌŽí—Þ
@@ -15,5 +17,6 @@ public enum SEType
     BombArrow,
     Noroi,
     Kiken,
-    Time1
+    Time1,
+    GetItem,
 }

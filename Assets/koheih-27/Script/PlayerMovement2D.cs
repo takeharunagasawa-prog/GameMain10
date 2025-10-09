@@ -22,7 +22,8 @@ public class PlayerMovement2D : MonoBehaviour
     //動けるかどうかを管理（一時的に）
     private bool canMove = false;
     private float timer = 0f;
-
+    private SpriteRenderer spriteRenderer;
+    private bool canFlip = true;
 
     void Awake()
     {
@@ -35,6 +36,7 @@ public class PlayerMovement2D : MonoBehaviour
         }
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Animatorコンポーネントを取得
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         
     }
@@ -50,12 +52,49 @@ public class PlayerMovement2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");  // A/D or ←/→
         float y = Input.GetAxisRaw("Vertical");    // W/S or ↑/↓
         input = new Vector2(x, y).normalized;      // 斜めで速くならないよう正規化
-
-        // アニメ用の値を渡す（Animatorがある場合）
-        if (Input.GetMouseButton(0))
+        if (canFlip)
         {
-            animator.SetTrigger("Attack");
+            if (x > 0)
+            {
+                spriteRenderer.flipX = false;
+
+            }
+
+            else if (x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                float dir = (mouseWorld.x - transform.position.x);
+                if (dir > 0)
+                {
+                    spriteRenderer.flipX = false;
+
+                }
+
+                else if (dir < 0)
+                {
+                    spriteRenderer.flipX = true;
+                }
+
+            }
         }
+        
+
+    }
+
+    public void DisableFlip()
+    {
+        canFlip = false;
+    }
+
+    public void EnableFlip()
+    {
+        canFlip = true;
     }
 
     void FixedUpdate()
