@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa98f043775838a40afb50bcd600ec03
+guid: 410f5f6547a22654cae18ab75f5fd124
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -350735894061432474
-    second: heartkaku_01_0
+      213: 4348121531913120178
+    second: heartkaku_03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heartkaku_01_0
+      name: heartkaku_03_0
       rect:
         serializedVersion: 2
         x: 64
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6614d78009fe12bf0800000000000000
-      internalID: -350735894061432474
+      spriteID: 2b9a8e5fe71a75c30800000000000000
+      internalID: 4348121531913120178
       vertices: []
       indices: 
       edges: []
