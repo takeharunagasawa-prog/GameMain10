@@ -106,7 +106,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  vanishTime: 1
+  explossionVanishTime: 1
   core: {fileID: 6943349673309942492, guid: 4912a623da5199e44bbb0a596d597203, type: 3}
+  explossion: {fileID: 2379199432524172259, guid: 88c2ffa9330fc7c40beb8c2fd2a9f448, type: 3}
+  arrowHit: {fileID: 2871932204060904130, guid: add7e77c5d40e8c4aab2bf8b24cae6f5, type: 3}
 --- !u!61 &4702418136450949018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6945cb799b825ad4bba83678961f2b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: -7501440897024182172}
 --- !u!1 &7619481117905006662
 GameObject:
   m_ObjectHideFlags: 0
