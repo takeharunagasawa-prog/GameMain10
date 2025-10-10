@@ -349,6 +349,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
         //現在のBGMIDを登録
         currentBgmId = bgmId;
+        Debug.Log(currentBgmId);
     }
 
     /// <summary>

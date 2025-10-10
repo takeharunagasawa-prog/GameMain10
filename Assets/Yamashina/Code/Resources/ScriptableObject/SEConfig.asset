@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SEConfig
   m_EditorClassIdentifier: 
   seLists:
-  - seId: 0
-    seAudioClip: {fileID: 8300000, guid: 65b2373faed5f2d4088e12a78c189eb0, type: 3}
+  - seId: 8
+    seAudioClip: {fileID: 8300000, guid: dba814b7c7cab4a4182d700ecacfccda, type: 3}
     description: "\u30DF\u30B9"
-  - seId: 1
-    seAudioClip: {fileID: 8300000, guid: e510da88a12136145aa2cee3df49e08f, type: 3}
+  - seId: 10
+    seAudioClip: {fileID: 8300000, guid: fc4c1fbcc6c4cc744bb9bbf062367933, type: 3}
     description: "\u30B0\u30EC\u30FC\u30C8"
   - seId: 2
     seAudioClip: {fileID: 8300000, guid: 63c0c35901476ac45b5dc83968123bc4, type: 3}
