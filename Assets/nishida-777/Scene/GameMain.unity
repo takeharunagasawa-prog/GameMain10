@@ -855,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -200, y: 90.6}
+  m_AnchoredPosition: {x: -200, y: 90.600006}
   m_SizeDelta: {x: 256, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437639027
@@ -1854,8 +1854,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1873852294285644882, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: stageRange.y
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2579464092509703794, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      propertyPath: love
+      value: 
+      objectReference: {fileID: 8284191696275231567}
     - target: {fileID: 3068266691954071870, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2067,6 +2071,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8284191696275231567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+  m_PrefabInstance: {fileID: 8284191696275231564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284191696275231565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcbece859eec1d41ae07c7ec3666678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
