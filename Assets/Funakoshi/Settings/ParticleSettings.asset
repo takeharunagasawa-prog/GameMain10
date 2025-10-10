@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ParticleSettings
   m_EditorClassIdentifier: 
   particleCount: 7
-  particleSize: 1.2
+  particleSize: 0.65
   emissionIntensity: 20
   emitDuration: 0.7
   emittingSpeedMultiplier: 0.98
