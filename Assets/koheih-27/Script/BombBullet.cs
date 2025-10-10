@@ -86,7 +86,6 @@ public class BombBullet : MonoBehaviour
 
     void Explode()
     {
-        AudioManager.Instance.PlaySEById(SEName.BombArrow);
         // Œ©‚½–Ú‚Ì”š”­‚ğo‚·i‚È‚­‚Ä‚àOKj
         if (explosionPrefab != null)
         {

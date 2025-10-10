@@ -20,8 +20,9 @@ public class PickupLove : MonoBehaviour
     {
 
         if (!other.CompareTag("Player")) return;
-        
-        if(manager != null)
+
+        if (manager != null)
+            AudioManager.Instance.PlaySEById(SEName.GetItem);
             manager.OnPickupCollected(); // LovePower ‚É•ñ
             Destroy(gameObject);         // ©•ª‚ğÁ‚·
         
