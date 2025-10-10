@@ -15,7 +15,6 @@ public class EnemySpawner : MonoBehaviour
     {
         mainCamera = Camera.main;
         
-        SpawnEnemy();
     }
 
     // Update is called once per frame
@@ -34,11 +33,51 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+#if false
+        // yu-kirohi
+        // このローカル変数作る意味なくない?
         Vector3 min = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0));
         Vector3 max = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+
+        // yu-ki-rohi
+        // この方法では要件を満たせてないよね
+
         //ランダムな位置を作る
         float x = Random.Range(minspawnRange.x, maxspawnRange.x);
         float y = Random.Range(minspawnRange.y, maxspawnRange.y);
+
+#else
+        float x, y;
+        int dirJudge = Random.Range(0, 4);
+        switch (dirJudge)
+        {
+            case 0:
+                // 上から
+                x = Random.Range(minspawnRange.x, maxspawnRange.x);
+                y = maxspawnRange.y;
+                break;
+            case 1:
+                // 右から
+                x = maxspawnRange.x;
+                y = Random.Range(minspawnRange.y, maxspawnRange.y);
+                break;
+            case 2:
+                // 下から
+                x = Random.Range(minspawnRange.x, maxspawnRange.x);
+                y = minspawnRange.y;
+                break;
+            case 3:
+                // 左から
+                x = minspawnRange.x;
+                y = Random.Range(minspawnRange.y, maxspawnRange.y);
+                break;
+            default:
+                x = minspawnRange.x;
+                y = minspawnRange.y;
+                break;
+        }
+#endif
+
         Vector2 spawnPos = new Vector2(x, y);
         //敵を生成する
         GameObject gameObject = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);

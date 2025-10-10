@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   vanishTime: 1
-  explossionVanishTime: 1
+  explossionVanishTime: 0.2
   core: {fileID: 6943349673309942492, guid: 4912a623da5199e44bbb0a596d597203, type: 3}
   explossion: {fileID: 2379199432524172259, guid: 88c2ffa9330fc7c40beb8c2fd2a9f448, type: 3}
   arrowHit: {fileID: 2871932204060904130, guid: add7e77c5d40e8c4aab2bf8b24cae6f5, type: 3}
@@ -170,7 +170,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4.18
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0

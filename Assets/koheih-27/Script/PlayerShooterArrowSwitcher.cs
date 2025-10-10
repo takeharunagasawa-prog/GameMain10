@@ -24,6 +24,7 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
     [SerializeField] private LovePower love;
     [SerializeField] float fireInterval = 0.25f;
     float lastFireTime;
+    private Vector3 targetPos = Vector3.zero;
     public void SwitchToBomb() { currentType = ArrowType.Bomb; ApplyTypeVisuals(); }
     public void SwitchToNormal() { currentType = ArrowType.Normal; ApplyTypeVisuals(); }
     void Awake()
@@ -46,6 +47,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attack");
+            targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPos.z = 0f;
         }
     }
 
@@ -54,9 +57,8 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         if (shootPoint == null) return;
         Debug.Log("Fire: type=" + currentType);
 
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorld.z = 0f;
-        Vector2 dir = (mouseWorld - shootPoint.position).normalized;
+       
+        Vector2 dir = (targetPos - shootPoint.position).normalized;
 
         float angle = (Mathf.Atan2(dir.y, dir.x) + Mathf.PI) * Mathf.Rad2Deg;
         Quaternion rotZ = Quaternion.AngleAxis(angle, Vector3.forward);
