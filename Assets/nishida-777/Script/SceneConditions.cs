@@ -22,7 +22,7 @@ public class SceneConditions : MonoBehaviour
 
     void Start()
     {
-
+        AudioManager.Instance.PlayBGMIfNotPlaying(BGMName.Battle);
     }
 
     void Update()
@@ -33,13 +33,15 @@ public class SceneConditions : MonoBehaviour
 
                 if(coreController.IsGameOver == true)
                 {
+
                     scene = GameScene.GameOver;
                 }
                 if(isTimeOver == true)
                 {
                     int killNum = ScoreManager.Instance.GetKillNum();
 
-                    if(killNum >= borderNum)
+
+                    if (killNum >= borderNum)
                     {
                         scene = GameScene.GameClear;
                     }
@@ -52,10 +54,14 @@ public class SceneConditions : MonoBehaviour
 
             case GameScene.GameOver:
                 SceneManager.LoadScene("GameOver");
+                AudioManager.Instance.PlayBGMIfNotPlaying(BGMName.Failed);
+
                 break; 
 
             case GameScene.GameClear:
                 SceneManager.LoadScene("GameClear");
+                AudioManager.Instance.PlayBGMIfNotPlaying(BGMName.Succeed);
+
                 break;
         }
     }

@@ -14,6 +14,7 @@ internal enum SEName
     GetItem,
     Click,
     MouseOver,
+    Finish,
 
 }
 

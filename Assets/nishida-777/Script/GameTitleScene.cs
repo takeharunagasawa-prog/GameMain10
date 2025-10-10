@@ -13,15 +13,17 @@ public class GameTitleScene : MonoBehaviour
     private void Start()
     {
      
-        //タイトル画面のBGM再生
-        SoundManager.Instance.PlayBGM(BGMType.Title);
 
-        GameInitializer.Instance.SetUpGameInitialize(); 
+        GameInitializer.Instance.SetUpGameInitialize();
+        //タイトル画面のBGM再生
+
+        AudioManager.Instance.PlayBGMIfNotPlaying(BGMName.Title);
+
 
     }
 
 
-    
+
     /// <summary>
     /// 
     /// </summary>

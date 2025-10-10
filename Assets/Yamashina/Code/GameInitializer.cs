@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameInitializer : SingletonMonoBehaviour<GameInitializer>
 {
+    private BGMConfigTable bgmConfigTable;
+
     private SEConfigTable seConfigTable;
     private GameSettings gameSettings;
 
@@ -12,9 +14,11 @@ public class GameInitializer : SingletonMonoBehaviour<GameInitializer>
 
     internal void SetUpGameInitialize()
     {
-        if (isInitialized)return;   
+        if (isInitialized)return;
 
         // 既存のリソースロード
+        bgmConfigTable = Resources.Load<BGMConfigTable>("ScriptableObject/BGMConfig");
+
         seConfigTable = Resources.Load<SEConfigTable>("ScriptableObject/SEConfig");
         gameSettings = Resources.Load<GameSettings>("ScriptableObject/gameSettings");
 
@@ -26,6 +30,8 @@ public class GameInitializer : SingletonMonoBehaviour<GameInitializer>
         // AudioManagerを強制的に先に生成
         var audio = AudioManager.Instance;
         // 設定テーブルを渡す
+        audio.SetupBGMConfigTable(bgmConfigTable);
+
         audio.SetupSEConfigTable(seConfigTable);
         
         
