@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using UnityEngine;
 
 /// <summary>
@@ -24,6 +25,7 @@ public class PlayerMovement2D : MonoBehaviour
     private float timer = 0f;
     private SpriteRenderer spriteRenderer;
     private bool canFlip = true;
+    [SerializeField] private Vector2 stageRange = Vector2.one;
 
     void Awake()
     {
@@ -104,6 +106,14 @@ public class PlayerMovement2D : MonoBehaviour
             return;
 
         Vector2 next = rb.position + input * moveSpeed * Time.fixedDeltaTime;
+        if(Mathf.Abs(next.x) > stageRange.x)
+        {
+            next.x = transform.position.x;
+        }
+        if (Mathf.Abs(next.y) > stageRange.y)
+        {
+            next.y = transform.position.y;
+        }
         rb.MovePosition(next);
     }
 }

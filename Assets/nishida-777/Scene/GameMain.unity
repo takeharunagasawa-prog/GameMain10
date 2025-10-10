@@ -499,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraComponent: {fileID: 293427699}
   targetTransform: {fileID: 467251222}
-  stageRange: {x: 38, y: 22}
+  stageRange: {x: 38, y: 21.5}
   stageCenter: {x: 0, y: 0}
 --- !u!1 &380642888
 GameObject:
@@ -1244,6 +1244,14 @@ PrefabInstance:
     - target: {fileID: 1873852294285644882, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: startDelay
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873852294285644882, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      propertyPath: stageRange.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873852294285644882, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
+      propertyPath: stageRange.y
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 2579464092509703794, guid: 6f5b9cabfc20f874ab822ce2021b2c32, type: 3}
       propertyPath: love
