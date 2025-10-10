@@ -47,7 +47,9 @@ public class PlayerShooterArrowSwitcher : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attack");
-            targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            AudioManager.Instance.PlaySEById(SEName.Arrow);
+
+targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos.z = 0f;
         }
     }

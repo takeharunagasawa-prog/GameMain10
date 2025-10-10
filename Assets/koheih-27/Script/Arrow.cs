@@ -54,6 +54,7 @@ public class Arrow : MonoBehaviour
             EnemiMove enemiMove = other.GetComponent<EnemiMove>();
             if (enemiMove != null)
             {
+                AudioManager.Instance.PlaySEById(SEName.Damage);
                 enemiMove.Defeated(false);
             }
 
