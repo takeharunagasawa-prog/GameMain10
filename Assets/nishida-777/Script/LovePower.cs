@@ -130,6 +130,8 @@ public class LovePower : MonoBehaviour
             }
             canCollect = false;// 以降は拾えない
             switched = true;
+            AudioManager.Instance.PlaySEById(SEName.Charge);
+
             Debug.Log("LovePower MAX！爆弾矢モードへ");
         }
     }
