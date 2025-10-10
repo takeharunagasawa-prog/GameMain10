@@ -11,8 +11,6 @@ public class PickupLove : MonoBehaviour
 
     private void Awake()
     {
-        if(manager == null)  manager = FindAnyObjectByType<LovePower>();
-
         var col = GetComponent<Collider2D>();
         if(col == null) col = gameObject.AddComponent<CircleCollider2D>();
         col.isTrigger = true;

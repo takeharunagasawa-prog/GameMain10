@@ -73,7 +73,7 @@ public class EnemiMove : MonoBehaviour
         else
         {
             Instantiate(arrowHit, transform.position, Quaternion.identity);
-            Invoke("Vanish", explossionVanishTime);
+            Invoke("Vanish",vanishTime);
         }
     }
 }
