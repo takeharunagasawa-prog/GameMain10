@@ -68,6 +68,7 @@ public class SceneConditions : MonoBehaviour
 
     public void TimeIsOver()
     {
+        AudioManager.Instance.PlayBGMIfNotPlaying(BGMName.Finish);  
         isTimeOver = true;
     }
 }

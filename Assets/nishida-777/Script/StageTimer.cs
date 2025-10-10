@@ -32,7 +32,6 @@ public class StageTimer : MonoBehaviour
             // 0ˆÈ‰º‚É‚È‚Á‚½‚çŽ~‚ß‚é
             if (currentTime <= 0)
             {
-                AudioManager.Instance.PlaySEById(SEName.Finish);
 
                 currentTime = 0;
                 isRunning = false;

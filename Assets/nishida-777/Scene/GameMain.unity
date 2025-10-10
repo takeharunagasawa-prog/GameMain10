@@ -1288,6 +1288,22 @@ PrefabInstance:
       propertyPath: maxEnemyCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3913957378577294032, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913957378577294032, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1512265375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196278774149592717, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196278774149592717, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1512265375
+      objectReference: {fileID: 0}
     - target: {fileID: 6147426863354687659, guid: 7b06500ca33a4004999b8da69f675198, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
