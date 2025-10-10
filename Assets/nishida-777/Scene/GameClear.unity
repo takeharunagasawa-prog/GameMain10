@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 885206786}
-  hereMessage: "\u544A\u767D\u3057\u3066\u304F\u3060\u3055\u3044\uFF01"
+  hereMessage: "\u4ED8\u304D\u5408\u3063\u3066\u304F\u3060\u3055\u3044"
   framesForChar: 1
 --- !u!1 &894632628
 GameObject:
