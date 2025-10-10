@@ -1649,6 +1649,18 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 4975753052195921801, guid: 0fc4d332fe83cce47bf1db5658f7e6cc, type: 3}
+    - target: {fileID: 7237639105720304617, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
+      propertyPath: spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237639105720304617, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
+      propertyPath: maxspawnRange.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7237639105720304617, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
+      propertyPath: minspawnRange.x
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 7760026035373643919, guid: 0bfe7ae82e23f874e9fc1140bab0ed9c, type: 3}
       propertyPath: m_Name
       value: EnemiSpawner
@@ -1889,6 +1901,38 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 293427699}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: maxSpawnRange.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: maxSpawnRange.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: maxspawnRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: maxspawnRange.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: minSpawnRange.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: minSpawnRange.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: minspawnRange.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821934522506900817, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
+      propertyPath: minspawnRange.y
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 2148887790740045998, guid: 6a3aa47aee70de24f99ca984a1896699, type: 3}
       propertyPath: m_Name
       value: LovePower

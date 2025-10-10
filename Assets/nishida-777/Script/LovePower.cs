@@ -23,6 +23,9 @@ public class LovePower : MonoBehaviour
 
     [SerializeField] private PlayerShooterArrowSwitcher shooter;
     [SerializeField] private Image heartMax;
+    [SerializeField, Range(1, 50)] private int needHeartNum = 4;
+    [SerializeField] private Vector2 minSpawnRange;  //生成位置のランダム範囲
+    [SerializeField] private Vector2 maxSpawnRange;
 
     void Start()
     {
@@ -45,13 +48,47 @@ public class LovePower : MonoBehaviour
 
     void SpawnRandomObject()
     {
+#if false
+        // yu-ki-rohi
+        // 作る前にプランナーに要件を確認しましたか?
         float height = mainCamera.orthographicSize * 2f;
         float width = height * mainCamera.aspect;
         Vector3 cam = mainCamera.transform.position;
 
         float x = Random.Range(cam.x - width / 2f, cam.x + width / 2f);
         float y = Random.Range(cam.y - height / 2f, cam.y + height / 2f);
-
+#else
+        
+        float x, y;
+        int dirJudge = Random.Range(0, 4);
+        switch (dirJudge)
+        {
+            case 0:
+                // 上側
+                x = Random.Range(-maxSpawnRange.x, maxSpawnRange.x);
+                y = Random.Range(minSpawnRange.y, maxSpawnRange.y);
+                break;
+            case 1:
+                // 右側
+                x = Random.Range(minSpawnRange.x, maxSpawnRange.x);
+                y = Random.Range(-maxSpawnRange.y, maxSpawnRange.y);
+                break;
+            case 2:
+                // 下側
+                x = Random.Range(-maxSpawnRange.x, maxSpawnRange.x);
+                y = Random.Range(-minSpawnRange.y, -maxSpawnRange.y);
+                break;
+            case 3:
+                // 左側
+                x = Random.Range(-minSpawnRange.x, -maxSpawnRange.x);
+                y = Random.Range(-maxSpawnRange.y, maxSpawnRange.y);
+                break;
+            default:
+                x = minSpawnRange.x;
+                y = minSpawnRange.y;
+                break;
+        }
+#endif
         var obj = Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
         obj.AddComponent<PickupLove>().Steup(this);
     }
@@ -65,10 +102,20 @@ public class LovePower : MonoBehaviour
         
         collectCount++;
 
+#if false
+        // yu-ki-rohi
+        // 式が間違っている
+        // 後マジックナンバーは避けようね
         if (gaugeImage != null)
             gaugeImage.fillAmount = Mathf.Clamp01(collectCount / collectCount); // 4回で満タン(1.0)
 
-        
+#else
+        if (gaugeImage != null)
+        {
+            gaugeImage.fillAmount = Mathf.Clamp01(collectCount / (float)needHeartNum);
+        }
+#endif
+
         if (!switched && gaugeImage != null && gaugeImage.fillAmount >= 1f)
         {
             // 100% 到達で爆弾矢に切替＆以降は拾えない
