@@ -40,11 +40,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     #region 各音源テーブルの内部管理用変数
 
-    /// <summary>
-    /// 登録されている BGM 設定テーブル
-    /// ScriptableObjectとして保持（元データ）
-    /// </summary>
-    //private BGMConfigTable bgmConfigTable;
+    // <summary>
+    //登録されている BGM 設定テーブル
+    //ScriptableObjectとして保持（元データ）
+    // </summary>
+    private BGMConfigTable bgmConfigTable;
 
     /// <summary>
     /// 登録されている SE 設定テーブル
@@ -57,9 +57,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     #region その他の内部管理用変数    
 
-    ///// 現在流れているBGMのID
-    ///// </summary>
-    //private BGMName currentBgmId;
+    /// 現在流れているBGMのID
+    /// </summary>
+    private BGMName currentBgmId;
 
     /// <summary>
     /// スタート時のオーディオソースの現在時刻（DspTime)
@@ -145,14 +145,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         ApplyVolumes();
     }
 
-    ///// <summary>
-    ///// BGM 設定テーブルを登録する。
-    ///// </summary>
-    ///// <param name="bgmTable">ScriptableObject で用意した BGM 設定テーブル</param>
-    //internal void SetupBGMConfigTable(BGMConfigTable bgmTable)
-    //{
-    //    bgmConfigTable = bgmTable;
-    //}
+    // <summary>
+    //BGM 設定テーブルを登録する。
+    //</summary>
+    /// <param name="bgmTable">ScriptableObject で用意した BGM 設定テーブル</param>
+    internal void SetupBGMConfigTable(BGMConfigTable bgmTable)
+    {
+        bgmConfigTable = bgmTable;
+    }
 
     /// <summary>
     /// SE 設定テーブルを登録する。
@@ -185,19 +185,19 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// <summary>
     /// 指定されたBGMが未再生または異なる場合に再生を開始する
     /// </summary>
-    /// <param name="bgmId">BGMConfigTable に登録された識別子</param>
-    //internal void PlayBGMIfNotPlaying(BGMName bgmId)
-    //{
-    //    if (string.IsNullOrEmpty(bgmId.ToString())) return;
+    /// <param name = "bgmId" > BGMConfigTable に登録された識別子</param>
+    internal void PlayBGMIfNotPlaying(BGMName bgmId)
+    {
+        if (string.IsNullOrEmpty(bgmId.ToString())) return;
 
-    //    // 同じ曲が流れていれば何もしない
-    //    if (currentBgmId == bgmId && bgmSource.isPlaying)
-    //    {
-    //        return;
-    //    }
-    //    //ループ対応ありでBGMIDの楽曲を流す
-    //    PlayBGMById(bgmId,islooped:true, forceReplay: false);
-    //}
+        // 同じ曲が流れていれば何もしない
+        if (currentBgmId == bgmId && bgmSource.isPlaying)
+        {
+            return;
+        }
+        //ループ対応ありでBGMIDの楽曲を流す
+        PlayBGMById(bgmId, islooped: true, forceReplay: false);
+    }
 
     ///// <summary>
     ///// 指定された BGM を強制的に初めから再生し、ループしない設定にする。
@@ -234,7 +234,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         //SEテーブルに何も入ってないなら
         if (seConfigTable == null)
         {
-           
+
             return;
         }
         //SEIDのデータをテーブルから取得する
@@ -243,7 +243,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         ///SEIDのデータがないなら
         if (seConfig == null)
         {
-               return;
+            return;
         }
 
         //SEを流す
@@ -285,7 +285,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         //クリップに何も入ってこないなら
         if (clip == null)
         {
-                return;
+            return;
         }
 
         //プレイ中、強制再再生なしなら処理しない
@@ -308,7 +308,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
         if (clip == null)
         {
-                     return;
+            return;
         }
 
         //オーディオソースの中から一個ずつ取り出して
@@ -330,26 +330,26 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// <summary>
     /// 指定した BGM ID の曲をループ再生する。
     /// </summary>
-    /// <param name="bgmId">BGMConfigTable に登録された識別子</param>
-    /// <param name="forceReplay">最初からBGMを流しなおすかどうか</param>
-    /// <param name="islooped">ループ対応させるかどうか</param>
-    //private void PlayBGMById(BGMName bgmId, bool islooped ,bool forceReplay = false)
-    //{
-    //    //BGMIDのデータをテーブルから取得する
-    //    var bgmConfig = bgmConfigTable.GetBgmConfig(bgmId);
+   // / <param name = "bgmId" > BGMConfigTable に登録された識別子</param>
+    /// <param name = "forceReplay" > 最初からBGMを流しなおすかどうか </ param >
+    /// < param name="islooped">ループ対応させるかどうか</param>
+    private void PlayBGMById(BGMName bgmId, bool islooped, bool forceReplay = false)
+    {
+        //BGMIDのデータをテーブルから取得する
+        var bgmConfig = bgmConfigTable.GetBgmConfig(bgmId);
 
-    //    //BGMIDのデータが見つからないなら
-    //    if (bgmConfig == null)
-    //    {
-    //                   return;
-    //    }
+        //BGMIDのデータが見つからないなら
+        if (bgmConfig == null)
+        {
+            return;
+        }
 
-    //    //BGMソースなどのデータを渡して終了
-    //    PlayClips(bgmSource, bgmConfig.BgmAudioClip, loop: islooped, forceReplay: forceReplay);
+        //BGMソースなどのデータを渡して終了
+        PlayClips(bgmSource, bgmConfig.BgmAudioClip, loop: islooped, forceReplay: forceReplay);
 
-    //    //現在のBGMIDを登録
-    //    currentBgmId = bgmId;
-    //}
+        //現在のBGMIDを登録
+        currentBgmId = bgmId;
+    }
 
     /// <summary>
     /// 設定した BGM と SE の音量を適用する。
