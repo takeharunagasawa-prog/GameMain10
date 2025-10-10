@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack
+  m_Name: Move
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -4308296749965426587, guid: b9dc30b0967fa7f44a7fef86a1b3bc88, type: 3}
-    - time: 0.25
-      value: {fileID: -6699610366373132658, guid: a551c81cbf7ebe942b5b1887088d3e97, type: 3}
-    - time: 0.5
-      value: {fileID: -4308296749965426587, guid: b9dc30b0967fa7f44a7fef86a1b3bc88, type: 3}
+      value: {fileID: 2280544640805726588, guid: 557d22193a4181847ab80c8604f68658, type: 3}
+    - time: 0.083333336
+      value: {fileID: 9098762204899400466, guid: 436a7c1ab61b2984e9b28f150f16d36d, type: 3}
+    - time: 0.16666667
+      value: {fileID: 2280544640805726588, guid: 557d22193a4181847ab80c8604f68658, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,20 +48,20 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -4308296749965426587, guid: b9dc30b0967fa7f44a7fef86a1b3bc88, type: 3}
-    - {fileID: -6699610366373132658, guid: a551c81cbf7ebe942b5b1887088d3e97, type: 3}
-    - {fileID: -4308296749965426587, guid: b9dc30b0967fa7f44a7fef86a1b3bc88, type: 3}
+    - {fileID: 2280544640805726588, guid: 557d22193a4181847ab80c8604f68658, type: 3}
+    - {fileID: 9098762204899400466, guid: 436a7c1ab61b2984e9b28f150f16d36d, type: 3}
+    - {fileID: 2280544640805726588, guid: 557d22193a4181847ab80c8604f68658, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.18333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -75,32 +75,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: DisableFlip
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.25
-    functionName: Fire
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: EnableFlip
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: 
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
